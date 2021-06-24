@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ModernAppDemo</name>
+    </assembly>
+    <members>
+        <member name="T:ModernAppDemo.Common.Images.ImageUtils">
+            <summary>Class StageImageUtils.</summary>
+        </member>
+        <member name="F:ModernAppDemo.Common.Images.ImageUtils.MODERN_APP_DEMO_IMAGE_PRE_PATH">
+            <summary>The image pre path</summary>
+        </member>
+        <member name="T:ModernAppDemo.Common.Utils.CommonViewModelValidations">
+            <summary></summary>
+        </member>
+        <member name="T:ModernAppDemo.ViewModels.SavedAccountViewModel">
+            <summary>
+               For storage only -- mimics the CreateAccountViewModel
+            </summary>
+        </member>
+    </members>
+</doc>
