@@ -8,7 +8,7 @@ Yup. And lazy.
 
 In the name of making something simpler, an MVVM framework creates a new layer on top of Xamarin. The creators claim this: so you can't build an airplane because it's too complicated? No problem!  I'll take your car and turn it into an airplane!
 
-<img src="docs/flying-cars-2.jpg  " width="300" align="right" />
+<img src="docs/flying-cars-2.jpg  " width="350" align="right" />
 
 When you try to implement this "easy" approach, you find that:
 > * Every button, pedal, or lever is attached to another device that you have to learn to push, and that feels klunky
@@ -22,7 +22,17 @@ Here's what the framework really is:
 
 * A black box full of assumptions that you would not undertand if you were a Tibetan monk with a hundred years to read them.
 * <B><I>Massive!</I></B> The most famous MVVM framework contains <B><I>two million lines!</I></B>
-* Much harder to use than you could imagine, and way more time-consuming. One Fortune 50 company recently adopted an MVVM framework to ensure that they could deliver their app in one year and at a cost of $15 million. They ended up taking <B><I>three</I></B> years and <B><I>$45 million</I></B>, and the app total crap!  
+* Much harder to use than you could imagine, and way more time-consuming. One Fortune 50 company recently adopted an MVVM framework to ensure that they could deliver their app in one year and at a cost of $15 million. They ended up taking <B><I>three</I></B> years and <B><I>$45 million</I></B>, and the app was total crap!  
+* Inflexible; buggy; ugly; stiff; not user-friendly.
+
+MVVM Frameworks do their "magic" by breaking every rule in the book regarding behavioral C# and Xamarin.  See my complete analysis <B>[here](https://marcusts.com/2018/04/06/the-mvvm-framework-anti-pattern).</B>
+
+## Do We Need an MVVM Framework?
+
+Nope.
+
+Look at the <B>[ModernAppDemo](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo)</B>.  It's everything I have learned since starting Xamarin. How does it accomplish a safe, reliable, faithful interpretation of MVVM?
+
 
 
 
