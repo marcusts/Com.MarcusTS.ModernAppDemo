@@ -4,10 +4,11 @@ A common interview question is, <I>"What MVVM frameworks do youu rely on for cre
 
 Yup. And lazy.
 
-## MVVM Frameworks Are a Mega-Tsunami Sandwich</BR>With a Shark-Nado Side
+## MVVM Frameworks Are a Mega-Tsunami Sandwich</BR>With a Shark-Nado on the Side
 
-In the name of making something simpler, an MVVM framework creates a new layer  on top of Xamarin. It says this: so you can't build an airplane because it's too complicated? No problem!  I'll take your car and turn it into an airplane!
+In the name of making something simpler, an MVVM framework creates a new layer on top of Xamarin. The creators claim this: so you can't build an airplane because it's too complicated? No problem!  I'll take your car and turn it into an airplane!
 
+![](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/docs/flying-cars-2.jpg)
 
 
 
