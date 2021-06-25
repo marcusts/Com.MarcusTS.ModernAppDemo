@@ -86,6 +86,6 @@ If they are editing, the keyboard will be visible and will hide the navigation. 
 
 This new type of <I>"master single page"</I> is never destroyed. Instead, its views are injected with various sub-views. The only exception is login, which has its own unique page and views.
 
-<img src="docs/tabbed_demo_live.gif" width="600" align="right" />
+<img src="docs/tabbed_demo_live.gif" width="400" align="right" />
 
-Here is an animated GIF showing the user experience of a tabbed UI:
+Here is an animated GIF showing the new tabbed UI:
