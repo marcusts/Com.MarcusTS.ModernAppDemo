@@ -8,7 +8,15 @@ Yup. And lazy.
 
 In the name of making something simpler, an MVVM framework creates a new layer on top of Xamarin. The creators claim this: so you can't build an airplane because it's too complicated? No problem!  I'll take your car and turn it into an airplane!
 
-![](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/docs/flying-cars-2.jpg)
+<img src="docs/flying-cars-2.jpg  " width="200" align="right" />
+
+When you try to implement this "easy" approach, you find that:
+> * Every button, pedal, or lever is attached to another device that you have to learn to push, and that feels klunky
+> * The moving parts went up by 3x. You don't understand any of them.
+> * The thing drives a lot worse
+> * The thing barely flies; nobody wants be the "test" pilot.
+
+
 
 
 
