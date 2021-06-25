@@ -14,7 +14,7 @@ When you try to implement this "easy" approach, you find that:
 > * Every button, pedal, or lever is attached to another device that you have to learn to push, and that feels klunky
 > * The moving parts went up by 3x. You don't understand any of them.
 > * The thing drives a lot worse
-> * The thing barely flies; nobody wants be the "test" pilot.
+> * The thing barely flies; nobody is suicidal enough to volunteer to be the "test" pilot.
 
 <B><I>To translate:</I></B> The MVVM framework is telling you: <I>"just create a website and we'll convert it into a Xamarin app"</I>.
 
@@ -27,12 +27,13 @@ Here's what the framework really is:
 
 MVVM Frameworks do their "magic" by breaking every rule in the book regarding behavioral C# and Xamarin.  See my complete analysis <B>[here](https://marcusts.com/2018/04/06/the-mvvm-framework-anti-pattern).</B>
 
-## Do We Need an MVVM Framework?
+## Do Anyone Actually Need an MVVM Framework?
 
 Nope.
 
 Look at the <B>[ModernAppDemo](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo)</B>.  It's everything I have learned since starting Xamarin. How does it accomplish a safe, reliable, faithful interpretation of MVVM?
 
+<img src="docs/mvvm_framework.png" width="500" align="right" />
 
 
 
