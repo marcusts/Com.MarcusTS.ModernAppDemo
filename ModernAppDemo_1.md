@@ -8,7 +8,7 @@ Yup. And lazy.
 
 In the name of making something simpler, an MVVM framework creates a new layer on top of Xamarin. The creators claim this: so you can't build an airplane because it's too complicated? No problem!  I'll take your car and turn it into an airplane!
 
-<img src="docs/flying-cars-2.jpg  " width="375" align="right" />
+<img src="docs/flying-cars-2.jpg  " width="400" align="right" />
 
 When you try to implement this "easy" approach, you find that:
 > * Every button, pedal, or lever is attached to another device that you have to learn to push, and that feels klunky
@@ -33,7 +33,114 @@ Nope.
 
 Look at the <B>[ModernAppDemo](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo)</B>.  It's everything I have learned since starting Xamarin. How does it accomplish a safe, reliable, faithful interpretation of MVVM?
 
-<img src="docs/mvvm_framework.png" width="500" align="right" />
+<img src="docs/mvvm_framework.png" width="600" align="right" />
+
+Here's the coding side of this diagram:
+
+### VIEW
+The MasterViewPresenter sets the view based on the view model and various run-time conditions:
+
+<font size="2">
+    
+```csharp
+protected override async Task RespondToViewModelChange(object newModule)
+{
+    if (newModule is IDashboardViewModel)
+    {
+        await ChangeContentView<IDashboardTitledFlexViewHost,         DashboardTitledFlexViewHost>(newModule)
+        .WithoutChangingContext();
+    }
+    else if (newModule is ISettingsViewModel)
+    {
+         await ChangeContentView<ISettingsTitledFlexViewHost, SettingsTitledFlexViewHost>(newModule)
+         .WithoutChangingContext();
+    }
+    else if (newModule is IAccountsViewModel)
+    {
+         await ChangeContentView<IAccountsTitledFlexViewHost, AccountsTitledFlexViewHost>(newModule)
+         .WithoutChangingContext();
+    }
+    else if (newModule is ILogInViewModel)
+    {
+         await ChangeContentView<ILogInTitledFlexViewHost, LogInTitledFlexViewHost>(newModule)
+         .WithoutChangingContext();
+    }
+    else if (newModule is ICreateAccountViewModel)
+    {
+         await ChangeContentView<ICreateAccountTitledFlexViewHost, CreateAccountTitledFlexViewHost>(newModule)
+         .WithoutChangingContext();
+    }
+    else if (newModule is ICreationSuccessViewModel)
+    {
+         await ChangeContentView<ICreationSuccessTitledFlexViewHost, CreationSuccessTitledFlexViewHost>(newModule)
+         .WithoutChangingContext();
+    }
+}
+```    
+</font>
+    
+<B><I>NOTE:</B> The call to <B>ChangeToolbarState</B> is a base class method from the <B>[XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport)
+    )</B> library, which we import here.</I>    
+    
+### VIEW
+The AppStateManager sets the view model based on the "current app state", which is arrived at by respoding to the user's decisions.
+    
+<font size="2">
+    
+```csharp
+protected override async Task RespondToAppStateChange(string newState, bool andRebuildToolbars = false)
+{
+    switch (newState)
+    {
+        case DASHBOARD_APP_STATE:
+            await ChangeToolbarViewModelState<IDashboardViewModel, DashboardViewModel>(newState)
+            .WithoutChangingContext();
+            break;
+
+        case ACCOUNTS_APP_STATE:
+            await ChangeToolbarViewModelState<IAccountsViewModel, AccountsViewModel>(newState)
+            .WithoutChangingContext();
+        break;
+
+        case SETTINGS_APP_STATE:
+            await ChangeToolbarViewModelState<ISettingsViewModel, SettingsViewModel>(newState)
+            .WithoutChangingContext();
+        break;
+
+        case SIGN_IN_APP_STATE:
+            await RequestLogin().WithoutChangingContext();
+        break;
+
+        case CREATE_ACCOUNT_APP_STATE:
+            await ChangeLoginViewModelState<ICreateAccountViewModel, CreateAccountViewModel>(
+            CREATION_SUCCESS_APP_STATE,
+            SIGN_IN_APP_STATE,
+            ServiceDateIsValidAndUserCanBeSaved)
+            .WithoutChangingContext();
+            break;
+
+        case CREATION_SUCCESS_APP_STATE:
+            await ChangeLoginViewModelState<ICreationSuccessViewModel, CreationSuccessViewModel>(
+            SIGN_IN_APP_STATE, 
+            NO_APP_STATE)
+    .WithoutChangingContext();
+            break;
+            
+        case LOGOUT_APP_STATE:
+            // TODO - Log out physically -- ??
+            await RequestLogin().WithoutChangingContext();
+            break;
+    }
+}    
+```
+    
+</font>
+    
+<B><I>NOTE:</B> The call to <B>ChangeContentView</B> is also a base class method from the <B>[XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport)
+    )</B> library.</I>
+    
+
+
 
 
 
