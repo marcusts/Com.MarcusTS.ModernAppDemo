@@ -52,7 +52,7 @@ Does this really make a lot more sense?  The user now has <B><I>false</I></B> ba
 
 <img src="docs/old_web_page.png" width="400" align="right" />
 
-<div style="vertical-align:top; display:inline-block;">
+<div style="vertical-align:top; display:inline-block; float:left; margin-below:300px">
 This is a typical old-fashioned app design.  Note that the keyboard is open, which occurs whenever the user can edit.
 
 Not only is the page used inefficiently.  It is also blown away and replaced constantly.
