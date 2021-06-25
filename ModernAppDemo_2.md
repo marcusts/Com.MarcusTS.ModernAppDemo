@@ -4,7 +4,7 @@
 
 Xamarin's creators wanted to create apps, but didn't funamentally understand them.  So when it came to navigation, they implemented what they knew: a web-like UI with irritating and antiquated features:
 
-<img src="docs/bad_app_design_with_menu.png" width="200" align="right" />
+<img src="docs/bad_app_design_with_menu.png" width="300" align="right" />
 
 * A large hamburger menu that drags open and <B>covers the screen</B>, causing a loss of <B><I>scope</I></B>.  The user feels "lost" whenever the menu is pen.
 * <B>Page-based</B> navigation, so after the user selects a menu item, the entire app screen refreshes.  The existing page is destroyed. A new page blows into place, usually with the same basic structure.
