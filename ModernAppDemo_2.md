@@ -49,12 +49,13 @@ Does this really make a lot more sense?  The user now has <B><I>false</I></B> ba
 </div>
 
 ## Old-Style App Design
-<div>
+
+<div style="position: fixed; top:0;">"
 <img src="docs/old_web_page.png" width="400" align="right" />
 
 This is a typical old-fashioned app design.  Note that the keyboard is open, which occurs whenever the user can edit.
 
-Not only is the page used inefficiently.  It is also blow away and replaced constantly.
+Not only is the page used inefficiently.  It is also blown away and replaced constantly.
 </div>
 
 ## The New One-Page App
@@ -64,4 +65,5 @@ Not only is the page used inefficiently.  It is also blow away and replaced cons
 Design is a beautiful thing, bit a cruel task-master.  Design requires us to abandon what we think we know about something and to restart with only <B>design principles</B> in mind: how to do a thing elegantly and wit the least effort.  A this point, the page concept itself comes into question.  After all, isn't the app just a single page fundamentally?  If the page has a title and a toolbar, why destroy that to do something similar?
 
 In this new approach, the logo is removed; navigation is bottom-centric; there are no general menus; the workflow area has grown abundantly.  This page is designed to be used universally for all sub-views; it is never replaced except at login.
+
 
