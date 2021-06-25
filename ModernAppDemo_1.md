@@ -33,7 +33,7 @@ Nope.
 
 Look at the <B>[ModernAppDemo](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo)</B>.  It's everything I have learned since starting Xamarin. How does it accomplish a safe, reliable, faithful interpretation of MVVM?
 
-<img src="docs/mvvm_framework.png" width="600" align="right" />
+<img src="docs/mvvm_framework.png" width="100%" align="left" />
 
 Here's the coding side of this diagram:
 
@@ -81,6 +81,8 @@ protected override async Task RespondToViewModelChange(object newModule)
     
 <B><I>NOTE:</B> The call to <B>ChangeToolbarState</B> is a base class method from the <B>[XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport)
     )</B> library, which we import here.</I>    
+    
+Notice also that all calls are quite generic, mentioning only an interface and class for a specific view. No other decisions are made; this is your entire involvement for a simple UI.
     
 ### VIEW
 The AppStateManager sets the view model based on the "current app state", which is arrived at by respoding to the user's decisions.
@@ -139,7 +141,12 @@ protected override async Task RespondToAppStateChange(string newState, bool andR
 <B><I>NOTE:</B> The call to <B>ChangeContentView</B> is also a base class method from the <B>[XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport)
     )</B> library.</I>
     
-
+The <B>APP_STATES</B> are simple string constants that you can easaily modiy for your own purposes.
+    
+We do pass a few functions here t ensure tha the suer is logged in, etc. You can re-arrange these to suit your own requirments.
+    
+    
+    
 
 
 
