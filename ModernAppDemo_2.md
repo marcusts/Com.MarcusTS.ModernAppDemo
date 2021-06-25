@@ -50,17 +50,12 @@ Does this really make a lot more sense?  The user now has <B><I>false</I></B> ba
 
 ## Old-Style App Design
 
-<div style="position: fixed; top:0;">"
-    
-<div style="position: fixed; top:0;">"
+<div style="height:600" top:0; position:absolute>
 <img src="docs/old_web_page.png" width="400" align="right" />
-</div>div
 
-<div style="position: fixed; top:0;">"
 This is a typical old-fashioned app design.  Note that the keyboard is open, which occurs whenever the user can edit.
 
 Not only is the page used inefficiently.  It is also blown away and replaced constantly.
-</div>
 </div>
 
 ## The New One-Page App
