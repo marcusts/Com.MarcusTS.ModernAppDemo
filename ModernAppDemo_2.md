@@ -68,15 +68,21 @@ Not only is the page used inefficiently.  It is also blown away and replaced con
 </BR>
 </BR>
 </BR>
-</BR>
-</BR>
 
-## The New One-Page App
+## The "Navigationless" One-Page App
 
 <img src="docs/single_page_app.png" width="400" align="right" />
 
-Design is a beautiful thing, bit a cruel task-master.  Design requires us to abandon what we think we know about something and to restart with only <B>design principles</B> in mind: how to do a thing elegantly and wit the least effort.  A this point, the page concept itself comes into question.  After all, isn't the app just a single page fundamentally?  If the page has a title and a toolbar, why destroy that to do something similar?
+Design is a beautiful thing, but a cruel task-master.  Design requires us to abandon what we think we know about something and to restart with only <B>design principles</B> in mind: how to do a thing elegantly and with the least effort.  At  this point, the page concept itself comes into question.  After all, isn't the app just a single page fundamentally?  If the page has a title and a toolbar, why destroy that to do something similar?
 
-In this new approach, the logo is removed; navigation is bottom-centric; there are no general menus; the workflow area has grown abundantly.  This page is designed to be used universally for all sub-views; it is never replaced except at login.
+In this new approach, the logo is removed; there are no general menus; the workflow area has grown abundantly. The navigation is now bottom-centric. It allows “quick” jumps using a tab bar.  It also visually cues the user to understand what they are currently working on.
 
+The magic of this approach is that the user can only do one of two things in an app:
+
+•	Navigate
+•	View/Edit
+
+If they are editing, the keyboard will be visible and will hide the navigation. Once they finish viewing or editing, the keyboard will retract and expose the navigation.
+
+This new type of <I>"master single page"</I> is never destroyed. Instead, its views are injected with various sub-views. The only exception is login, which has its own unique page and views.
 
