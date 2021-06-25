@@ -35,7 +35,8 @@ Look at the <B>[ModernAppDemo](https://github.com/marcusts/Com.MarcusTS.ModernAp
 
 <img src="docs/mvvm_framework.png" width="100%" align="left" />
 
-Here's the coding side of this diagram:
+</BR>
+Here's the coding side of the diagram:
 
 ### VIEW
 The MasterViewPresenter sets the view based on the view model and various run-time conditions:
@@ -81,8 +82,8 @@ protected override async Task RespondToViewModelChange(object newModule)
     
 <B><I>NOTE:</B> The call to <B>ChangeToolbarState</B> is a base class method from the <B>[XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport)
     )</B> library, which we import here.</I>    
-    
-Notice also that all calls are quite generic, mentioning only an interface and class for a specific view. No other decisions are made; this is your entire involvement for a simple UI.
+
+The case statement simply sks about the crrent view model interface. All calls are quite generic, mentioning only an interface and class for a specific view. No other decisions are made; this is your entire involvement for a simple UI.
     
 ### VIEW
 The AppStateManager sets the view model based on the "current app state", which is arrived at by respoding to the user's decisions.
@@ -141,9 +142,14 @@ protected override async Task RespondToAppStateChange(string newState, bool andR
 <B><I>NOTE:</B> The call to <B>ChangeContentView</B> is also a base class method from the <B>[XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport)
     )</B> library.</I>
     
-The <B>APP_STATES</B> are simple string constants that you can easaily modiy for your own purposes.
+The <B>APP_STATES</B> are string constants that you can easaily modify for your own purposes.
     
-We do pass a few functions here t ensure tha the suer is logged in, etc. You can re-arrange these to suit your own requirments.
+We do pass a few functions here to ensure that the user is logged in, etc. You can re-arrange these to suit your own requirments.
+    
+### DI CONTAINER
+The DI <I>("Dependency Injection")</I> container constructs classes using standardized rules and based on strct interface contracts. This container is often used to inject parameters into classes being constructed. It is a standard feature of so-called MVVM frameworks.  This DI Container is mine -- [check it out](https://github.com/marcusts/Com.MarcusTS.SmartDI).
+
+    
     
     
     
