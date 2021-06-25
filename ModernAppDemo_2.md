@@ -48,7 +48,18 @@ Back navigation is inherently <B><I>masochistic</I></B> for this reason.  Of cou
 Does this really make a lot more sense?  The user now has <B><I>false</I></B> back navigation, not really reflecting their steps, but including <B><I>all</I></B> of their mis-steps -- just <B><I>once each</I></B>.
 </div>
 
-## The One-Page App
+## Old-Style App Design
 
-Design is a beautiful thing, bit a cruel task-master.  Design requires us to abandon what we think we know about something 
+<img src="docs/old_web_design.png" width="400" align="right" />
+
+This is a typical old-fashioned app design.  Note that the keyboard is open, which occurs whenever the user can edit.
+
+Not only is the page used inefficiently.  It is also blow away and replaced constantly.
+
+## The New One-Page App
+
+Design is a beautiful thing, bit a cruel task-master.  Design requires us to abandon what we think we know about something and to restart with only <B>design principles</B> in mind: how to do a thing elegantly and wit the least effort.  A this point, the page concept itself comes into question.  Afer all, isn't the app just a single page fundamentally?  If the page has a title and a toolbar, why destroy that to do something similar?
+
+
+
 
