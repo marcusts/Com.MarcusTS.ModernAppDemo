@@ -25,6 +25,10 @@ The easiest way to introduce animations into an app is at any location where the
 </BR>
 </BR>
 </BR>
+</BR>
+</BR>
+</BR>
+</BR>
 
 ## Advanced Animations
 
@@ -51,6 +55,8 @@ This leaves us free to animate the tile in using clever techniques.  This enhanc
 </BR>
 </BR>
 </BR>
+</BR>
+</BR>
 
 ### Dynamically Reshaping Tiles
 
@@ -60,6 +66,8 @@ A <I>"tile"</I> is also dynamically resizable and reshapeable. This maintains th
 
 See [<B>The New "Navigationless" UI</B>](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo_2.md) for more about how this affects the how the user moves from place to place.
 
+</BR>
+</BR>
 </BR>
 </BR>
 </BR>
