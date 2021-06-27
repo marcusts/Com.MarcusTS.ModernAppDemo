@@ -15,7 +15,7 @@ Xamarin's creators wanted to create apps, but didn't fundamentally understand th
     > - The user then selects <B>Settings</B> from the menu.  But they forgot which setting they wanted to change.
     > - The user selects <B>Help</B> from the menu to find out more about settings.
     > - The user selects <B>Settings</B> from the menu again and makes a change.  But they're not sure if it took hold.
-    > - The user selects <B>Dashboard</B> to see if the setting took hold.  I didn't. Apparently, they made another mistake. <I>(For the record: this happens all day long in a user app.)</I>
+    > - The user selects <B>Dashboard</B> to see if the setting took hold.  It didn't. Apparently, they made another mistake. <I>(For the record: this happens <B>all day long</B> in a user app.)</I>
     > - The user selects <B>Settings</B> from the menu for a third time and fixes the issue.
     > - The user selects <B>Dashboard</B> and confirms that all is good finally.
     > - The user selects <B>Accounts</B> from the menu and reviews those.
