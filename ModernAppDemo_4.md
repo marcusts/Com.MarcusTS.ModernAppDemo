@@ -6,21 +6,6 @@ This is the [Modern App Demo](https://github.com/marcusts/Com.MarcusTS.ModernApp
 
 <BR/>
 <BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
-<BR/>
 
 This screen leverages a <B>FlexViewWithTasks</B> from the [ResponsiveTasks.XamFormsSupport library](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport). Here's the source code, digested a bit for clarity:
 
@@ -202,7 +187,7 @@ public virtual
 
 The method determines what sort of editor to create based on the input type which is passed in by the view model attribute.
 
-## How (and When) To Use THIS Sort of "Trick"
+## How (and When) To Use This Sort of "Trick"
 
 Philosophically, Xamarin should be made up of MVVM-style <B><I>separated concerns</I></B>.  This approach bends the rules slightly. The view model drives many details about <B><I>how</I></B> the view appears. On the other hand, sometimes the UI view is just a set of rote properties that are mostly similar to each other.  This actually helps the user to understand what to do.  The view model can provide these basic attributes, and the view can be built without the heavy-duty approach that would otherwise be required.  So use this trick for entry/input views such as Login or Create Account.
 
