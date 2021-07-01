@@ -3,9 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-    <Version>1.0.2</Version>
-    <AssemblyVersion>1.0.2.0</AssemblyVersion>
-    <FileVersion>1.0.2.0</FileVersion>
+    <Version>1.0.3</Version>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
     <Copyright>2021, Marcus Technical Services</Copyright>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -53,8 +53,8 @@
     <PackageReference Include="Acr.UserDialogs" Version="7.1.0.514" />
     <PackageReference Include="AsyncAwaitBestPractices" Version="5.1.0" />
     <PackageReference Include="AsyncAwaitBestPractices.MVVM" Version="5.1.0" />
-    <PackageReference Include="Com.MarcusTS.ResponsiveTasks.XamFormsSupport" Version="1.0.3" />
-    <PackageReference Include="Com.MarcusTS.SharedForms" Version="1.0.41" />
+    <PackageReference Include="Com.MarcusTS.ResponsiveTasks.XamFormsSupport" Version="1.0.4" />
+    <PackageReference Include="Com.MarcusTS.SharedForms" Version="1.0.42" />
     <PackageReference Include="Com.MarcusTS.SharedUtils" Version="1.0.26" />
     <PackageReference Include="Com.MarcusTS.SmartDI" Version="1.0.27" />
     <PackageReference Include="Plugin.Permissions" Version="6.0.1" />

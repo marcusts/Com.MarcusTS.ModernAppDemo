@@ -26,6 +26,8 @@
 // SOFTWARE.
 // *********************************************************************************
 
+using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.ViewModels;
+
 namespace ModernAppDemo.Common.Utils
 {
    using System.Runtime.CompilerServices;
@@ -35,7 +37,7 @@ namespace ModernAppDemo.Common.Utils
    using Com.MarcusTS.SharedForms.ViewModels;
    using Xamarin.Forms;
 
-/// <summary></summary>
+   /// <summary></summary>
    public static class CommonViewModelValidations
    {
       public const int    MUST_BE_NON_EMPTY_MIN_LENGTH      = 1;
@@ -48,7 +50,7 @@ namespace ModernAppDemo.Common.Utils
       public const string PHONE_NUMBER_FORMAT               = "{0:(###) ###-####}";
       public const string PHONE_NUMBER_MASK                 = "(XXX) XXX-XXXX";
 
-      public class NonEmptyViewModelValidationAttribute : ViewModelValidationAttribute
+      public class NonEmptyViewModelValidationAttribute : ViewModelValidationAttribute_RTXFS
       {
          public NonEmptyViewModelValidationAttribute(int displayOrder, [CallerMemberName] string propName = "")
             : base(displayOrder: displayOrder, viewModelPropertyName: propName)
@@ -130,7 +132,7 @@ namespace ModernAppDemo.Common.Utils
               [CallerMemberName] string propName = "")
               : base(displayOrder, propName)
           {
-              InputType = InputTypes.NullableDateTimeInput;
+              InputTypeStr = InputTypes_RTXFS.InputTypes_RTFXS_NullableDateTimeInput;
           }
         }
     }

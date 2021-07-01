@@ -28,6 +28,7 @@
 
 using Com.MarcusTS.SharedUtils.Utils;
 using System.Threading.Tasks;
+using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Common.Utils;
 
 namespace ModernAppDemo.ViewModels
 {
@@ -39,7 +40,6 @@ namespace ModernAppDemo.ViewModels
     using Common.Utils;
     using SQLite;
     using System;
-    using Xamarin.Forms;
 
     public interface ICreateAccountViewModel : IWizardViewModelWithTasks, ICommonAccountProps,
        IHandleNullableDateTimeChanges
@@ -106,7 +106,7 @@ namespace ModernAppDemo.ViewModels
         [PrimaryKey] [AutoIncrement] public int Id { get; set; }
 
       [CommonViewModelValidations.ValidatableTwoWayNonEmptyViewModelValidationAttribute(displayOrder: 7, PlaceholderText = "Is the Sky Blue?",
-                         InputType = InputTypes.CheckBoxInput)]
+                         InputTypeStr = InputTypes_RTXFS.InputTypes_RTFXS_CheckBoxInput)]
       public bool IsTheSkyBlue
         {
             get => _isTheSkyBlue;
@@ -165,7 +165,7 @@ namespace ModernAppDemo.ViewModels
             }
         }
 
-      [CommonViewModelValidations.ValidatableTwoWayNonEmptyViewModelValidationAttribute(displayOrder: 8, PlaceholderText = "State of Residence?", InputType = InputTypes.StateInput)]
+      [CommonViewModelValidations.ValidatableTwoWayNonEmptyViewModelValidationAttribute(displayOrder: 8, PlaceholderText = "State of Residence?", InputTypeStr = InputTypes_RTXFS.InputTypes_RTFXS_StateInput)]
       public string StateOfResidence
         {
             get => _stateOfResidence;

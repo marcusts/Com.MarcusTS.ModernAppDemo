@@ -8,3 +8,6 @@ dotnet_diagnostic.IDE0055.severity = none
 
 # Default severity for all analyzer diagnostics
 dotnet_analyzer_diagnostic.severity = suggestion
+
+# ConfigureAwaitEnforcer: ConfigureAwaitEnforcer
+dotnet_diagnostic.ConfigureAwaitEnforcer.severity = warning

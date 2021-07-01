@@ -143,10 +143,10 @@
       <Version>7.1.0.514</Version>
     </PackageReference>
     <PackageReference Include="Com.MarcusTS.ResponsiveTasks.XamFormsSupport">
-      <Version>1.0.3</Version>
+      <Version>1.0.4</Version>
     </PackageReference>
     <PackageReference Include="Com.MarcusTS.SharedForms">
-      <Version>1.0.41</Version>
+      <Version>1.0.42</Version>
     </PackageReference>
     <PackageReference Include="Com.MarcusTS.SharedUtils">
       <Version>1.0.26</Version>
