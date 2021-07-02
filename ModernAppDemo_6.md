@@ -52,14 +52,14 @@ Only the humble <B>Xamarin.Forms.Label</B> has survived!  Otherwise, we have use
 
 <img src="docs/dashboard.jpg" width="300" align="right" />
 
-Our custom controls can provide a much cleaner and more consistent UI for your app. But they also provide a much more powerful styling methodoloogy than you would find in old-style Xamarin controls.  Take the TriStateImageLabelButton<I>{WithTasks}</I> from the [ResponsveTasks.XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport) as an example.  This is the "button" you see on the login screen from the earlier screen-shots.  There's an even better exmaple once you log in. From the login screen, type:
+Our custom controls can provide a much cleaner and more consistent UI for your app. But they also provide a much more powerful styling methodology than you would find in old-style Xamarin controls.  Take the TriStateImageLabelButton<I>{WithTasks}</I> from the [ResponsveTasks.XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport) as an example.  This is the "button" you see on the login screen from the earlier screen-shots.  There's an even better example once you log in. From the login screen, type:
 
 >User Name: <B>TestUser1</B>
->Password: <B>TestPssword1</B>
+Password: <B>TestPassword1</B>
 
 The empty Dashboard window opens, revealing a toolbar at the bottom. Each button there is a TriStateImabeLabelButton<I>{WithTasks}</I>.  <I>(The suffix "WithTasks" means that this button leverages the [ResponsiveTasks library](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks)).</I>
 
-The TriStateImageLabelButton asccepts both a image and text, and each can be separately positioned <B><I>anywhere</I></B> accurately using standard alignment techniques ("Start", "End", etc.).  But the beauty part is the concept of button state, with each state being <B><I>completely</I></B> stylable:
+The TriStateImageLabelButton accepts both a image and text, and each can be separately positioned <B><I>anywhere</I></B> accurately using standard alignment techniques ("Start", "End", etc.).  But the beauty part is the concept of button state, with each state being <B><I>completely</I></B> stylable:
 
 ``` csharp
 public class TriStateImageLabelButtonWithTasks : 
@@ -120,7 +120,7 @@ private async Task HandlePostBindingTask(IResponsiveTaskParams paramdict)
 }
 ```
 
-Otherwise, you can create yor own toolbar by adopting the provided method:
+Otherwise, you can create your own toolbar by adopting the provided method:
 
 ``` csharp
 private async Task RebuildToolbar()
@@ -224,7 +224,7 @@ private async Task RebuildToolbar()
 - ValidatableSlider<I>{WithTasks}</I>
 - YesNoToggleImageLabelButton<I>{WithTasks}</I>
 
-... plus manynbase classes where you can easily build your own custom controls .
+... plus many base classes where you can easily build your own custom controls .
 
 
 
