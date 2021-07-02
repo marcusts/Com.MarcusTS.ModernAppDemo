@@ -2,12 +2,12 @@
 
 <img src="docs/create_account_screen.jpg" width="300" align="right" />
 
-This is the [Modern App Demo](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo)'s <B>Create Account</B> View.  There is something quite unusual about it.  It does not contain a "view" in the classical sense. This is how that might look in older-style Xamarin:
+This is the [Modern App Demo](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo)'s <B>Create Account</B> View.  There is something quite unusual about it.  It does not contain a "view" in the classical sense.
 
 <BR/>
 <BR/>
 
-This screen leverages a <B>FlexViewWithTasks</B> from the [ResponsiveTasks.XamFormsSupport library](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport). Here's the source code, digested a bit for clarity:
+Instead, this screen leverages a <B>FlexViewWithTasks</B> from the [ResponsiveTasks.XamFormsSupport library](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport). Here's the source code, digested a bit for clarity:
 
 ``` csharp
 public class CreateAccountView : FlexViewWithTasks, ICreateAccountView
