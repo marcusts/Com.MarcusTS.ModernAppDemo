@@ -18,9 +18,26 @@ This approach directly violates C# behavioral guidance:
 
 ## View Models -- The Right Way
 
-<img src="docs/view_model_proper_navigation.png" width="500" align="right" />
+<img src="docs/view_model_proper_navigation.png" width="600" align="right" />
 
 Most view models don't have a lot to do with actual workflow.  Most of them have two key buttons near the bottom: <B>Cancel</B> and <B>Continue</B>.  In essence, the view model can be considered to be a Boolean, or perhaps more flexibly, a <B><I>nullable</I></B> Boolean.  This is because the user might navigate away using unexpected or unknown means, closing the view and view model <I>(think of hitting the power button on the phone, or using a toolbar to jump out without notice)</I>.  This third condition would therefore return as <B>null</B>.  Otherwise, the view model would return <B>True</B> or <B>False</B>.  That's all, folks.
+
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
 
 The <B>App State Manager</B> sets the current view model based on the current <B>app state</B>.  This is just a unique string like <B>LOGIN_STATE</B>, etc.  The Manager also sets the conditions on what app state will be assigned when the new view model returns:
 
