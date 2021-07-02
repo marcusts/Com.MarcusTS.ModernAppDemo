@@ -8,7 +8,7 @@
     <FileVersion>1.0.3.0</FileVersion>
     <Copyright>2021, Marcus Technical Services</Copyright>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -58,10 +58,6 @@
     <PackageReference Include="Com.MarcusTS.SharedUtils" Version="1.0.26" />
     <PackageReference Include="Com.MarcusTS.SmartDI" Version="1.0.27" />
     <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
-     <PackageReference Include="PropertyChanged.Fody">
-        <Version>3.4.0</Version>
-        <PrivateAssets>All</PrivateAssets>
-     </PackageReference>
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
