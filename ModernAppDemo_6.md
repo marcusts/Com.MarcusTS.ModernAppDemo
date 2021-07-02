@@ -29,9 +29,25 @@ Take the Modern App Demo's login screen.  Can you tell what has been customized 
 </BR>
 </BR>
 </BR>
+</BR>
+</BR>
 
-<img src="docs/login_screen_with_callouts.png" width="475" align="right" />
+<img src="docs/login_screen_with_callouts.png" width="500" align="right" />
 
 Only the humble <B>Xamarin.Forms.Label</B> has survived!  Otherwise, we have used what we originally called an open source <B>ShapeView</B> -- a ContentView "frame" that contains anythng, and comes with healthy border support. That control was eventualy replaced by another open source library called the [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView), so we just derived that and added some new functionality.  It is still called <B>ShapeView</B> inside our own forms controls library, [SharedForms](https://github.com/marcusts/Com.MarcusTS.SharedForms).
+
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+</BR>
+
+## Free Custom Controls Provided in the SharedForms library 
 
 
