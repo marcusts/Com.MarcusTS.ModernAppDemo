@@ -1,6 +1,6 @@
 # Isolated, Safe View Models
 
-Ideally, IT philosophy is grounded in <B><I>fundamentals</I></B>.  Unfortunately, the age f Twitter has crated a new world in which any idea makes sense as long as it is cute-and-sexy.  Nothing is ever carefully evaluated. Instead, if it's new and cool, and people adopt it, it makes "perfect sense".
+Ideally, IT philosophy is grounded in <B><I>fundamentals</I></B>.  Unfortunately, the age of Twitter has created a new world in which any idea makes sense as long as it is cute-and-sexy.  Nothing is ever carefully evaluated. Instead, if it's new and cool, and people adopt it, it makes "perfect sense".
 
 ## View Models Cannot Know About Other View Models
 
