@@ -14,12 +14,12 @@ For the programmer, this sort of oddity means that coding can feel like "death a
 
 ## Customizing the UI from the Ground Up
 
-<img src="docs/login_screen_cropped.png" width="300" align="right" margin="50" />
+<img src="docs/login_screen_cropped.png" width="300" align="right" />
+<img src="docs/login_screen_with_callouts.png" width="600" align="right" />
 
 The solution is obvious: stop relying on most native controls for Xamarin.  This does not mean that the final code being output is not native. We will only change the UI controls themselves.
 
 Take the Modern App Demo's login screen.  Can you tell what has been customized for safety?
 
-<img src="docs/login_screen_with_callouts.png" width="600" align="right" />
 
 
