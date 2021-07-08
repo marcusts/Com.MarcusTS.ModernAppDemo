@@ -4,9 +4,11 @@ Xamarin is, above all else, a platform based on <B>behavioral C#</B>.  The close
 
 We will focus on several fundamental concepts in C# behavioral thinking:
 
+</BR>
+</BR>
 
 ----------------------------------------------------------------------------------------
-## 1. There is No Good Sort of Redundancy
+## There is No Good Sort of Redundancy
 ----------------------------------------------------------------------------------------
 
 <B>DRY</B> -- <I>"Don't Repeat Yourself"</I> -- was doomed to misunderstanding from the start.  Remember the commercials for "How Dry I Am?"  It seems a bit glib.  Of course I am dry !!!  So let's break this down a bit.
@@ -188,7 +190,7 @@ I don't think I shall ever see a poem as lovely as a tree
 which becomes
 /////////////
 
-I do / don't (On Tuesdays after 5 p.m.) 
+I do not / do (On Tuesdays after 5 p.m.) 
     think I shall ever see a-poem-lovely-as a Palm Tree.
 ```
 
@@ -204,7 +206,7 @@ public static string FetchMeSomeBadPoetry()
     return 
         "I " +
         /////////////////////////////////////
-        Is it a Tuesday after 5 p.m., ? "do" : "do not" +
+        Is it a Tuesday after 5 p.m.? "do not" : "do" +
         /////////////////////////////////////
         " think I shall ever see a-poem-lovely-as a Palm Tree."
 }
@@ -216,22 +218,73 @@ We have two goals in programming:
 1. To Always Succeed
 2. To Always Fail.  We then fix the issue ***in one location*** and return to step #1.
 
+</BR>
+</BR>
 
 ----------------------------------------------------------------------------------------
-## 2. A Program Is **Variable**, Not Static
+## A Program Is **Variable**, Not Static
 ----------------------------------------------------------------------------------------
-
 <img src="docs/ball_bearings_assorted.jpg" width="300" align="right" />
 
-Most of the classes in a behavioral C# app are meant to learn, change, and be consumed.  The entire app is like a **handful of ball bearings**.  
-
-What an app is ***not*** is a bunch of rebar frozen into concerete.  That is what happens when we write a *script*.  Scripts are almost entirely static because contain tedious and redundant instructions that are mostly cut-and-pasted or entered loosely, *"from the keyboard"*.
+Most of the classes in a behavioral C# app are meant to learn, change, and be consumed.  The entire app is like a **handful of ball bearings**. 
 
 
+### To Create Variability:
 
+>* If a member ***can*** vary, declare it as a variable
+>* If it ***cannot*** vary, declare it as a constant and share it centrally
+>* Avoid quoted strings or other in-line *"loose primitives"* except as constants.
+>* No class should now about any other class -- ***except*** for a few navigation or state management cases
+>* No class can contact another class except through an ***interface***. This rule affects virtually all parameters, variables, and class members.
+>* Interfaces should be as ***narrow as possible*** to allow interactions without exposing  additional information.
+>* Everything you do should be ***compile-time type-safe***.
 
+### Don't Issue Instructions
 
+Don't think of programming as "giving instructions".  That's a *script*.  Scripts are mostly static because they contain tedious instructions that are cut-and-pasted or entered loosely, *"from the keyboard"*.
+
+``` csharp
+if (b == "This is a loose primitive'")
+{
+}
+////////////////////////////////////////////////////////////////////////////////////////
+The funny part: The value of b is "This is a loose primitive".  Why doesn't it match?
+////////////////////////////////////////////////////////////////////////////////////////
+```
+
+### Conventions are Static To Make Them Seem Easier to Learn
+
+Published *"conventions"* are generally backwards facing, so do not focus on design  principles or aspiration al thinking. Take **Expression Blend**.  At one time, this editor was a *"convention"* because it allowed graphic designers to create XAML to describe the UI in non-programmer's terms. The editor's pretty much gone, but we're still stuck with XAML.  That's because it has been adopted by web programmers who write in HTML, and consider this to be a familiar paradigm. So now it's a *"convention"*.
+
+**NOTE:** The XAML topic is too large to address here.
 
 ----------------------------------------------------------------------------------------
 ## The Modern App Demo: Metrics Tell the Tale
 ----------------------------------------------------------------------------------------
+
+The Modern App Demo leverages a number of powerful, centralized libraries to prevent redundancy and to enforce C# behavioral rules:
+
+[SharedUtils](https://github.com/marcusts/Com.MarcusTS.SharedUtils)
+[SharedForms](https://github.com/marcusts/Com.MarcusTS.SharedForms)
+[ResponsiveTasks](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks)
+[ResponsiveTasks.XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport)
+
+The key metrics for these libraries are:
+
+| Library                   | Maintainability Average (1) | Source Lines | Executable Lines | Cyclomatic Complexity (2) |
+| :---                      | :---:                       | :---:        | :---:            | :---:                     |
+| SharedUtils               | 87.8                        | 2,777        | 389              | 2.7                       |
+| SharedForms               | 94.4                        | 19,172       | 2,754            | 2.1                       |
+| ResponsiveTasks           | 94.1                        | 1,203        | 184              | 1.6                       |
+| RespTasks.XamFormsSupport | 92.9                        | 12,251       | 2,260            | 1.9                       |
+| ModernAppDemo             | 93.1                        | 1,741        | 221              | 0.2                       |
+|                           |                             |              |                  |                           |
+| *AVERAGE/TOTAL*           | 92.5                        | 37,144       | 5,821            | 1.7                       |
+
+>**NOTES:**
+> 1. *100 is ideal*
+> 2. *50% Median Average; 50% Straight Average*
+
+
+
+
