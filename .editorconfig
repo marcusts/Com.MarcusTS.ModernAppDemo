@@ -7,7 +7,28 @@ dotnet_diagnostic.AsyncFixer01.severity = suggestion
 dotnet_diagnostic.IDE0055.severity = none
 
 # Default severity for all analyzer diagnostics
-dotnet_analyzer_diagnostic.severity = suggestion
+dotnet_analyzer_diagnostic.severity = warning
 
 # ConfigureAwaitEnforcer: ConfigureAwaitEnforcer
 dotnet_diagnostic.ConfigureAwaitEnforcer.severity = warning
+
+# CS4014: Because this call is not awaited, execution of the current method continues before the call is completed
+dotnet_diagnostic.CS4014.severity = warning
+
+# IDE0058: Expression value is never used
+dotnet_diagnostic.IDE0058.severity = warning
+
+# CS0162: Unreachable code detected
+dotnet_diagnostic.CS0162.severity = silent
+
+# IDE0021: Use expression body for constructors
+dotnet_diagnostic.IDE0021.severity = suggestion
+
+# IDE0010: Add missing cases
+dotnet_diagnostic.IDE0010.severity = suggestion
+
+# IDE0022: Use expression body for methods
+dotnet_diagnostic.IDE0022.severity = suggestion
+
+# Default severity for analyzer diagnostics with category 'ConfigureAwait'
+dotnet_analyzer_diagnostic.category-ConfigureAwait.severity = warning

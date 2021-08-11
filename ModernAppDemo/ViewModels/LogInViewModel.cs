@@ -28,15 +28,11 @@
 
 namespace ModernAppDemo.ViewModels
 {
-   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Common.Utils;
-using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.ViewModels;
-   using Com.MarcusTS.SharedForms.Common.Behaviors;
-   using Com.MarcusTS.SharedForms.Common.Interfaces;
+   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.ViewModels;
    using Com.MarcusTS.SharedForms.ViewModels;
+   using Com.MarcusTS.SharedUtils.Utils;
    using Common.Interfaces;
-using ModernAppDemo.Common.Utils;
-   using Xamarin.Forms;
-using static ModernAppDemo.Common.Utils.CommonViewModelValidations;
+   using static ModernAppDemo.Common.Utils.CommonViewModelValidations;
 
    public interface ILogInViewModel : IWizardViewModelWithTasks, ICanLogIn
    {
@@ -52,7 +48,7 @@ using static ModernAppDemo.Common.Utils.CommonViewModelValidations;
          Title = "Sign In";
       }
 
-      [TwoWayNonEmptyViewModelValidationAttribute(0, PlaceholderText = CommonViewModelValidations.USER_NAME_PLACEHOLDER_TEXT)]
+      [TwoWayNonEmptyViewModelValidationAttribute(0, PlaceholderText = USER_NAME_PLACEHOLDER_TEXT)]
       public string UserName
       {
          get => _userName;
@@ -60,12 +56,12 @@ using static ModernAppDemo.Common.Utils.CommonViewModelValidations;
          {
             if (SetProperty(ref _userName, value))
             {
-               VerifyCommandCanExecute();
+               VerifyCommandCanExecute().FireAndForget();
             }
          }
       }
       
-      [TwoWayNonEmptyViewModelValidationAttribute(1, PlaceholderText = CommonViewModelValidations.PASSWORD_PLACEHOLDER_TEXT, IsPassword = ViewModelValidationAttribute_Static.TRUE_BOOL, CanUnmaskPassword = ViewModelValidationAttribute_Static.TRUE_BOOL)]
+      [TwoWayNonEmptyViewModelValidationAttribute(1, PlaceholderText = PASSWORD_PLACEHOLDER_TEXT, IsPassword = ViewModelValidationAttribute_Static.TRUE_BOOL, CanUnmaskPassword = ViewModelValidationAttribute_Static.TRUE_BOOL)]
       public string Password
       {
          get => _password;
@@ -73,7 +69,7 @@ using static ModernAppDemo.Common.Utils.CommonViewModelValidations;
          {
             if (SetProperty(ref _password, value))
             {
-               VerifyCommandCanExecute();
+               VerifyCommandCanExecute().FireAndForget();
             }
          }
       }

@@ -42,9 +42,9 @@ namespace ModernAppDemo.Views.App
    {
    }
 
-   public sealed class App : AppBase, IAppBase
+   public sealed class App : AppBase, IApp
    {
-      protected override IMasterViewPresenterBase GetMasterPresenter(ICanShowProgressSpinner spinnerHost)
+      protected override IMasterViewPresenterWithTasksBase GetMasterPresenter(ICanShowProgressSpinner spinnerHost)
       {
          return new MasterViewPresenter(spinnerHost);
       }
@@ -56,7 +56,7 @@ namespace ModernAppDemo.Views.App
 
       protected override IToolbar GetMasterToolbar()
       {
-         return new Toolbar { ImageResourcePath = ImageUtils.MODERN_APP_DEMO_IMAGE_PRE_PATH, ImageResourceType = typeof(ImageUtils), MarginAndSpacing = 10.0.AdjustForOsAndDevice()};
+         return new Toolbar { ImageResourcePath = ImageUtils.MODERN_APP_DEMO_IMAGE_PRE_PATH, ImageResourceType = typeof(ImageUtils), MarginAndSpacing = FormsConst.DEFAULT_STACK_LAYOUT_SPACING};
       }
    }
 }

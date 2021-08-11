@@ -29,17 +29,18 @@
 namespace ModernAppDemo.Views.Subviews
 {
    using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.Subviews;
+   using Com.MarcusTS.SharedUtils.Utils;
 
-   public interface ISettingsView : IFlexViewWithTasks
+   public interface ISettingsView : IFlexViewWithTasks_FlowLayout
    {
 
    }
 
-   public class SettingsView : FlexViewWithTasks, ISettingsView
+   public class SettingsView : FlexViewWithTasks_FlowLayout, ISettingsView
    {
       public SettingsView()
       {
-         SetForceFullScreen(true);
+         SetForceFullScreen(true).FireAndForget();
       }
    }
 }

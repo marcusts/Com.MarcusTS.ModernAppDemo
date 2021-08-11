@@ -34,13 +34,12 @@ namespace ModernAppDemo.Views.Presenters
    using Com.MarcusTS.SharedUtils.Utils;
    using Subviews;
    using ViewModels;
-   using Xamarin.Essentials;
 
-   public interface IMasterViewPresenter : IMasterViewPresenterBase
+   public interface IMasterViewPresenter : IMasterViewPresenterWithTasksBase
    {
    }
 
-   public class MasterViewPresenter : MasterViewPresenterWithTasks, IMasterViewPresenter
+   public class MasterViewPresenter : MasterViewPresenterWithTasksBase, IMasterViewPresenter
    {
       public MasterViewPresenter(ICanShowProgressSpinner spinnerHost) : base(spinnerHost)
       {

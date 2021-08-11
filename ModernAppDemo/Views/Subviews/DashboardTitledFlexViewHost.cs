@@ -36,6 +36,6 @@ namespace ModernAppDemo.Views.Subviews
 
     public class DashboardTitledFlexViewHost : TitledFlexViewHost, IDashboardTitledFlexViewHost
     {
-        protected override IFlexViewWithTasks DerivedFlexView => new DashboardView();
+        protected override IFlexViewWithTasksBase DerivedFlexViewHost => new DashboardView();
     }
 }

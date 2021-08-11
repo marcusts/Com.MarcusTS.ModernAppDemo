@@ -4,19 +4,19 @@
 // file=LogInView.cs
 // company="Marcus Technical Services, Inc.">
 // </copyright>
-// 
+//
 // MIT License
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in all
 // copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
@@ -30,51 +30,69 @@ namespace ModernAppDemo.Views.Subviews
 {
    using System.Threading.Tasks;
    using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Common.Utils;
-using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.ViewModels;
+   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.ViewModels;
    using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.Subviews;
-   using Com.MarcusTS.SharedForms.Common.Utils;
-   using Com.MarcusTS.SharedForms.ViewModels;
-   using Com.MarcusTS.SharedForms.Views.SubViews;
-using Com.MarcusTS.SharedUtils.Utils;
+   using Com.MarcusTS.SharedUtils.Controls;
+   using Com.MarcusTS.SharedUtils.Utils;
+   using Xamarin.Essentials;
    using Xamarin.Forms;
 
-   public interface ILogInView : IFlexViewWithTasks
+   public interface ILogInView : IFlexViewWithTasks_FlowLayout
    {
    }
 
-   public class LogInView : FlexViewWithTasks, ILogInView
+   public class LogInView : FlexViewWithTasks_FlowLayout, ILogInView
    {
-      protected override async Task AfterSourceViewsLoaded()
+      protected override async Task BeforeSourceViewsAssigned(BetterObservableCollection<View> retViews)
       {
-         await base.AfterSourceViewsLoaded().WithoutChangingContext();
+         await base.BeforeSourceViewsAssigned(retViews).WithoutChangingContext();
+
          // Add the save and new account buttons
+         if (BindingContext is IWizardViewModelWithTasks bindingContextAsWizardViewModelWithTasks)
+         {
+            if (MainThread.IsMainThread)
+            {
+               AddLoginButton();
+            }
+            else
+            {
+               MainThread.BeginInvokeOnMainThread(AddLoginButton);
+            }
+         }
 
-         var nextTabIndex = MasterAnimatedStackLayoutAsView.SourceViews.Count;
+         // -----------------------------------------------------------------------------------------------
+         // P R I V A T E   M E T H O D S
+         // -----------------------------------------------------------------------------------------------
+         void AddLoginButton()
+         {
+            var nextTabIndex = retViews.Count;
 
-         var loginButton =
-            CreateButton(
-                         "Log In", 
-                         (BindingContext as IWizardViewModelWithTasks)?.NextCommand, 
-                         nextTabIndex++, 
-                         true,
-                         useExtraTopSpace:true
-                         );
+            var loginButton =
+               FlowableUtils.CreateFlowableControlButton(
+                  "Log In",
+                  bindingContextAsWizardViewModelWithTasks.NextCommand,
+                  bindingContextAsWizardViewModelWithTasks,
+                  nextTabIndex++,
+                  true,
+                  extraTopSpace: FlowableConst.DEFAULT_EXTRA_TOP_MARGIN);
 
-         MasterAnimatedStackLayoutAsView.SourceViews.Add(loginButton as View);
+            retViews.Add(loginButton as View);
 
-         var createAccountButton =
-            CreateButton(
-                         "New User? Create Account", 
-                         (BindingContext as IWizardViewModelWithTasks)?.CancelCommand,
-                         // ReSharper disable once RedundantAssignment
-                         nextTabIndex++, 
-                         false, 
-                         ThemeUtils_RTXFS.MAIN_STAGE_THEME_COLOR, 
-                         fontAtributes: FontAttributes.Italic,
-                         backColor:Color.Transparent
-                         );
+            var createAccountButton =
+               FlowableUtils.CreateFlowableControlButton(
+                  "New User? Create Account",
+                  bindingContextAsWizardViewModelWithTasks.CancelCommand,
+                  bindingContextAsWizardViewModelWithTasks,
+                  nextTabIndex++,
+                  false,
+                  ThemeUtils_RTXFS.MAIN_STAGE_THEME_COLOR,
+                  fontAttributes: FontAttributes.Italic,
+                  backColor: Color.Transparent
+               );
 
-         MasterAnimatedStackLayoutAsView.SourceViews.Add(createAccountButton as View);
+            retViews.Add(createAccountButton as View);
+         }
+         // -----------------------------------------------------------------------------------------------
       }
    }
 }

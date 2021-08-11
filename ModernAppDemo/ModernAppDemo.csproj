@@ -51,21 +51,22 @@
 
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.1.0.514" />
-    <PackageReference Include="AsyncAwaitBestPractices" Version="5.1.0" />
-    <PackageReference Include="AsyncAwaitBestPractices.MVVM" Version="5.1.0" />
-    <PackageReference Include="Com.MarcusTS.ResponsiveTasks.XamFormsSupport" Version="1.0.4" />
-    <PackageReference Include="Com.MarcusTS.SharedForms" Version="1.0.42" />
-    <PackageReference Include="Com.MarcusTS.SharedUtils" Version="1.0.26" />
-    <PackageReference Include="Com.MarcusTS.SmartDI" Version="1.0.27" />
+    <PackageReference Include="AsyncAwaitBestPractices" Version="6.0.0" />
+    <PackageReference Include="AsyncAwaitBestPractices.MVVM" Version="6.0.0" />
     <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1687" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="FodyWeavers.xsd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\ResponsiveTasks.XamFormsSupport\ResponsiveTasks.XamFormsSupport.csproj" />
+    <ProjectReference Include="..\..\..\SharedForms\SharedForms.csproj" />
   </ItemGroup>
 </Project>

@@ -26,14 +26,12 @@
 // SOFTWARE.
 // *********************************************************************************
 
-using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.ViewModels;
-
 namespace ModernAppDemo.Common.Utils
 {
+   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.ViewModels;
    using System.Runtime.CompilerServices;
    using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Common.Behaviors;
    using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Common.Utils;
-   using Com.MarcusTS.SharedForms.Common.Behaviors;
    using Com.MarcusTS.SharedForms.ViewModels;
    using Xamarin.Forms;
 
@@ -42,7 +40,7 @@ namespace ModernAppDemo.Common.Utils
    {
       public const int    MUST_BE_NON_EMPTY_MIN_LENGTH      = 1;
       public const string PASSWORD_PLACEHOLDER_TEXT         = "Password";
-      public const int    PHONE_EDIT_LEN                    = 14;
+      public const int    PHONE_EDIT_LEN_INCLUDING_MASK     = 14;
       public const string PHONE_PLACEHOLDER_TEXT            = "Phone";
       public const string USER_NAME_PLACEHOLDER_TEXT        = "User Name";
       public const string CONFIRM_PASSWORD_PLACEHOLDER_TEXT = "Confirm " + PASSWORD_PLACEHOLDER_TEXT;
@@ -107,8 +105,8 @@ namespace ModernAppDemo.Common.Utils
               : base(displayOrder, propName)
           {
               PlaceholderText = PHONE_PLACEHOLDER_TEXT;
-              MinLength= PHONE_EDIT_LEN;
-              MaxLength = PHONE_EDIT_LEN;
+              MinLength= PHONE_EDIT_LEN_INCLUDING_MASK;
+              MaxLength = PHONE_EDIT_LEN_INCLUDING_MASK;
               Mask = PHONE_NUMBER_MASK;
               StringFormat = PHONE_NUMBER_FORMAT;
               BoundMode = BindingMode.TwoWay;

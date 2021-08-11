@@ -4,19 +4,19 @@
 // file=CreateAccountView.cs
 // company="Marcus Technical Services, Inc.">
 // </copyright>
-// 
+//
 // MIT License
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in all
 // copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
@@ -26,46 +26,54 @@
 // SOFTWARE.
 // *********************************************************************************
 
-using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Common.Behaviors;
-using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.Controls;
-
 namespace ModernAppDemo.Views.Subviews
 {
    using System.Linq;
    using System.Threading.Tasks;
+   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Common.Behaviors;
    using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.ViewModels;
+   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.Controls;
    using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.Subviews;
-   using Com.MarcusTS.SharedForms.Common.Behaviors;
-   using Com.MarcusTS.SharedForms.Common.Utils;
-   using Com.MarcusTS.SharedForms.Views.Controls;
+   using Com.MarcusTS.SharedUtils.Controls;
    using Com.MarcusTS.SharedUtils.Utils;
    using Xamarin.Forms;
 
-   public interface ICreateAccountView : IFlexViewWithTasks
+   public interface ICreateAccountView : IFlexViewWithTasks_FlowLayout
    {
    }
 
-   public class CreateAccountView : FlexViewWithTasks, ICreateAccountView
+   public class CreateAccountView : FlexViewWithTasks_FlowLayout, ICreateAccountView
    {
-      protected override Task AfterSourceViewsLoaded()
+      public CreateAccountView()
       {
+         SetForceFullScreen(true).FireAndForget();
+      }
+
+      protected override async Task BeforeSourceViewsAssigned(BetterObservableCollection<View> retViews)
+      {
+         await base.BeforeSourceViewsAssigned(retViews).WithoutChangingContext();
+
          // Set the comparison validator
-         
+
          // 1. Get the binding context as a view with a list of behaviors
-         if (BindingContext is IHaveValidationViewModelHelperWithTasks bindingContextAsHavingValidationViewModelHelperWithTasks)
+         if (BindingContext is IHaveValidationViewModelHelperWithTasks
+            bindingContextAsHavingValidationViewModelHelperWithTasks)
          {
-            var allBehaviors = bindingContextAsHavingValidationViewModelHelperWithTasks.ValidationHelperWithTasks.GetBehaviors();
+            var allBehaviors = bindingContextAsHavingValidationViewModelHelperWithTasks.ValidationHelperWithTasks
+               .GetBehaviors();
 
             // 2. Find the comparison validator
             var comparisonBehavior =
                allBehaviors.FirstOrDefault(b => b is IComparisonEntryValidatorBehaviorWithTasks) as
-                   IComparisonEntryValidatorBehaviorWithTasks;
+                  IComparisonEntryValidatorBehaviorWithTasks;
 
-            // 3. Use the MasterAnimatedStackLayoutAsView/s Children as entries (which they are); find the password view (and entry).
-            var passwordView  =
-               MasterAnimatedStackLayoutAsView.SourceViews.FirstOrDefault(sv => sv is IValidatableEntryWithTasks viewAsValidatableEntryWithTasks &&
-                   viewAsValidatableEntryWithTasks.EditableEntry.IsNotNullOrDefault() &&
-                   viewAsValidatableEntryWithTasks.EditableEntry.Behaviors.Any(b => b is IPasswordEntryValidationBehaviorWithTasks)) as IValidatableEntryWithTasks;
+            // 3. Use the retViews as entries (which they are); find the password view (and entry).
+            var passwordView =
+               retViews.FirstOrDefault(sv =>
+                  sv is IValidatableEntryWithTasks viewAsValidatableEntryWithTasks &&
+                  viewAsValidatableEntryWithTasks.EditableEntry.IsNotNullOrDefault() &&
+                  viewAsValidatableEntryWithTasks.EditableEntry.Behaviors.Any(b =>
+                     b is IPasswordEntryValidationBehaviorWithTasks)) as IValidatableEntryWithTasks;
 
             // 4. Assign the password entry to the comparison validator
             var passwordEntry = passwordView?.EditableEntry;
@@ -78,34 +86,34 @@ namespace ModernAppDemo.Views.Subviews
             }
          }
 
+         /*
          // Add the save and cancel buttons
 
-         var nextTabIndex = MasterAnimatedStackLayoutAsView.SourceViews.Count;
-         
-         var saveButton =
-            CreateButton(
-                         "Create Account", 
-                         (BindingContext as IWizardViewModelWithTasks)?.NextCommand, 
-                         nextTabIndex++, 
-                         true,
-                         useExtraTopSpace:true);
+         var nextTabIndex = retViews.Count;
 
-         MasterAnimatedStackLayoutAsView.SourceViews.Add(saveButton as View);
+         var saveButton =
+            CreateFlowableControlButton(
+               "Create Account",
+               (BindingContext as IWizardViewModelWithTasks)?.NextCommand,
+               nextTabIndex++,
+               true,
+               extraTopSpace: DEFAULT_EXTRA_TOP_MARGIN);
+
+         retViews.Add(saveButton as View);
 
          var cancelButton =
-            CreateButton(
-                         "CANCEL".Expanded(), 
-                         (BindingContext as IWizardViewModelWithTasks)?.CancelCommand, 
-                         // ReSharper disable once RedundantAssignment
-                         nextTabIndex++,
-                         false,
-                         Color.Red, 
-                         null, 
-                         backColor:Color.Transparent);
+            CreateFlowableControlButton(
+               "CANCEL".Expanded(),
+               (BindingContext as IWizardViewModelWithTasks)?.CancelCommand,
+               // ReSharper disable once RedundantAssignment
+               nextTabIndex++,
+               false,
+               Color.Red,
+               null,
+               backColor: Color.Transparent);
 
-         MasterAnimatedStackLayoutAsView.SourceViews.Add(cancelButton as View);
-
-         return base.AfterSourceViewsLoaded();
+         retViews.Add(cancelButton as View);
+         */
       }
    }
 }

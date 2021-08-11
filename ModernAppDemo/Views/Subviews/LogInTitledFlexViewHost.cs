@@ -4,19 +4,19 @@
 // file=LogInTitledFlexViewHost.cs
 // company="Marcus Technical Services, Inc.">
 // </copyright>
-// 
+//
 // MIT License
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in all
 // copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
@@ -28,19 +28,27 @@
 
 namespace ModernAppDemo.Views.Subviews
 {
-   using System;
    using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.Subviews;
    using Com.MarcusTS.SharedForms.Common.Utils;
-   using Com.MarcusTS.SharedForms.Views.SubViews;
-using Com.MarcusTS.SharedUtils.Utils;
+   using Xamarin.Forms;
 
-public interface ILogInTitledFlexViewHost : ITitledFlexViewHost
+   public interface ILogInTitledFlexViewHost : ITitledFlexViewHost
    {
    }
 
    public class LogInTitledFlexViewHost : TitledFlexViewHost, ILogInTitledFlexViewHost
    {
-      private static readonly double SIGN_IN_WIDTH = 275.0.AdjustForOsAndDevice();
-      protected override IFlexViewWithTasks DerivedFlexView => new LogInView { WidthRequest = SIGN_IN_WIDTH };
+      public LogInTitledFlexViewHost()
+      {
+         HeightRequest = 365.0.AdjustForOsAndDevice();
+         Margin = new Thickness((ScaleUtils.CURRENT_DEVICE_WIDTH - 285.0.AdjustForOsAndDevice()) / 2, 0);
+      }
+
+      protected override IFlexViewWithTasksBase DerivedFlexViewHost => 
+         new LogInView
+         {
+            HeightRequest = 245.0.AdjustForOsAndDevice(),
+            Margin = FormsConst.DEFAULT_STACK_LAYOUT_MARGIN
+         };
    }
 }

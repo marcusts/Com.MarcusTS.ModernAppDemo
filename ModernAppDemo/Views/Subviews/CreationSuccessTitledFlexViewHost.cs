@@ -36,6 +36,6 @@ namespace ModernAppDemo.Views.Subviews
 
     public class CreationSuccessTitledFlexViewHost : TitledFlexViewHost, ICreationSuccessTitledFlexViewHost
     {
-        protected override IFlexViewWithTasks DerivedFlexView => new CreationSuccessView();
+        protected override IFlexViewWithTasksBase DerivedFlexViewHost => new CreationSuccessView();
     }
 }

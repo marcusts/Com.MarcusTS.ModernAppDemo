@@ -6,7 +6,6 @@ using Xamarin.Forms;
 namespace ModernAppDemo.iOS
 {
    using UIKit;
-   using Xamarin.Forms;
    using Xamarin.Forms.Platform.iOS;
 
    public class CustomEntryRenderer : EntryRenderer

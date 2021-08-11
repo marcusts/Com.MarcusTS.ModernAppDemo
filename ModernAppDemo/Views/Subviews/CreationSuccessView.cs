@@ -4,19 +4,19 @@
 // file=CreationSuccessView.cs
 // company="Marcus Technical Services, Inc.">
 // </copyright>
-// 
+//
 // MIT License
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in all
 // copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
@@ -28,31 +28,31 @@
 
 namespace ModernAppDemo.Views.Subviews
 {
-   using System.Threading.Tasks;
-using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.ViewModels;
+using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Common.Utils;
+   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.ViewModels;
    using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.Subviews;
    using Com.MarcusTS.SharedForms.Common.Utils;
-   using Com.MarcusTS.SharedForms.ViewModels;
-   using Com.MarcusTS.SharedForms.Views.SubViews;
-using Com.MarcusTS.SharedUtils.Utils;
-   using Common.Images;
+   using Com.MarcusTS.SharedUtils.Controls;
+   using Com.MarcusTS.SharedUtils.Utils;
+   using ModernAppDemo.Common.Images;
+   using System.Threading.Tasks;
    using Xamarin.Forms;
 
-   public interface ICreationSuccessView : IFlexViewWithTasks
+   public interface ICreationSuccessView : IFlexViewWithTasks_FlowLayout
    {
    }
 
-   public class CreationSuccessView : FlexViewWithTasks, ICreationSuccessView
+   public class CreationSuccessView : FlexViewWithTasks_FlowLayout, ICreationSuccessView
    {
       private static readonly double CHECK_MARK_WIDTH_HEIGHT = 75.0.AdjustForOsAndDevice();
 
-      protected override async Task AfterSourceViewsLoaded()
+      protected override async Task BeforeSourceViewsAssigned(BetterObservableCollection<View> retViews)
       {
-         await base.AfterSourceViewsLoaded().WithoutChangingContext();
+         await base.BeforeSourceViewsAssigned(retViews).WithoutChangingContext();
 
          // Add the check mark, message and sign on views
 
-         var nextTabIndex = MasterAnimatedStackLayoutAsView.SourceViews.Count;
+         var nextTabIndex = retViews.Count;
 
          var checkMark = FormsUtils.GetImage(ImageUtils.MODERN_APP_DEMO_IMAGE_PRE_PATH + "green_check_mark.jpg",
             CHECK_MARK_WIDTH_HEIGHT, CHECK_MARK_WIDTH_HEIGHT, getFromResources: true,
@@ -60,17 +60,25 @@ using Com.MarcusTS.SharedUtils.Utils;
 
          checkMark.Margin = 20.0.AdjustForOsAndDevice();
 
-         MasterAnimatedStackLayoutAsView.SourceViews.Add(checkMark);
+         retViews.Add(checkMark);
 
          var messLabel = FormsUtils.GetSimpleLabel("Account Successfully Created", fontNamedSize: NamedSize.Small);
          messLabel.Margin = new Thickness(0, 25.0.AdjustForOsAndDevice());
 
-         MasterAnimatedStackLayoutAsView.SourceViews.Add(messLabel);
+         retViews.Add(messLabel);
 
-         var logInButton =
-            CreateButton("Log In?", (BindingContext as IWizardViewModelWithTasks)?.NextCommand, nextTabIndex, false);
+         if (BindingContext is IWizardViewModelWithTasks bindingContextAsWizardViewModelWithTasks)
+         {
+            var logInButton =
+               FlowableUtils.CreateFlowableControlButton(
+                  "Log In?", 
+                  bindingContextAsWizardViewModelWithTasks.NextCommand, 
+                  bindingContextAsWizardViewModelWithTasks,
+                  nextTabIndex, 
+                  false);
 
-         MasterAnimatedStackLayoutAsView.SourceViews.Add(logInButton as View);
+            retViews.Add(logInButton as View);
+         }
       }
    }
 }

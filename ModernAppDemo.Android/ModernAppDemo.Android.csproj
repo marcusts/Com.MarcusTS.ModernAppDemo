@@ -40,6 +40,8 @@
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <MandroidI18n />
     <PlatformTarget>x64</PlatformTarget>
+    <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
+    <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -64,12 +66,6 @@
     <PackageReference Include="Acr.UserDialogs">
       <Version>7.1.0.514</Version>
     </PackageReference>
-    <PackageReference Include="Com.MarcusTS.SharedUtils">
-      <Version>1.0.26</Version>
-    </PackageReference>
-    <PackageReference Include="Com.MarcusTS.SmartDI">
-      <Version>1.0.27</Version>
-    </PackageReference>
     <PackageReference Include="CSharpGuidelinesAnalyzer">
       <Version>3.6.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -92,9 +88,9 @@
       <Version>28.0.0.3</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials">
-      <Version>1.6.1</Version>
+      <Version>1.7.0</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1687" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
     <PackageReference Include="Xamarin.Forms.PancakeView">
       <Version>2.3.0.759</Version>
     </PackageReference>
@@ -136,8 +132,16 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\ResponsiveTasks.XamFormsSupport\ResponsiveTasks.XamFormsSupport.csproj">
+      <Project>{31574931-2b2b-4249-b663-fccbbd32442e}</Project>
+      <Name>ResponsiveTasks.XamFormsSupport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SharedForms\SharedForms.csproj">
+      <Project>{2b367f1a-1015-48b3-b58a-d718ea178d95}</Project>
+      <Name>SharedForms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ModernAppDemo\ModernAppDemo.csproj">
-      <Project>{3A961740-20FD-42D8-AE02-4110451B0675}</Project>
+      <Project>{3a961740-20fd-42d8-ae02-4110451b0675}</Project>
       <Name>ModernAppDemo</Name>
     </ProjectReference>
   </ItemGroup>

@@ -36,6 +36,6 @@ namespace ModernAppDemo.Views.Subviews
 
     public class SettingsTitledFlexViewHost : TitledFlexViewHost, ISettingsTitledFlexViewHost
     {
-        protected override IFlexViewWithTasks DerivedFlexView => new SettingsView();
+        protected override IFlexViewWithTasksBase DerivedFlexViewHost => new SettingsView();
     }
 }
