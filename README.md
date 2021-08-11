@@ -1,5 +1,9 @@
 
-# Create an Animated Modern App Using Xamarin.Forms and Responsive Tasks
+# Create an Animated Modern App
+</br>
+Using Xamarin.Forms
+</br>
+and Responsive Tasks
 
 <img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/Modern_App_Demo_Master_Cropped.gif" width="300" />
 
