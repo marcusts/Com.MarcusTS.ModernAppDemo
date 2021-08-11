@@ -1,5 +1,7 @@
 
-# Create a Safe, Lively, Modern App Using Responsive Tasks
+# Create an Animated Modern App Using Xamarin.Forms and Responsive Tasks
+
+!(https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/Modern_App_Demo_Master_Gif.gif)
 
 >**NOTE**
 To learn more about how <b>Responsive Tasks</b> manages TPL gaps, see the <B>[NuGet](https://www.nuget.org/packages/Com.MarcusTS.ResponsiveTasks/)</B> or download the source at <B>[Github](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks)</B>.  <I>This guide does not duplicate the topics in the Responsive Tasks library.</I>
