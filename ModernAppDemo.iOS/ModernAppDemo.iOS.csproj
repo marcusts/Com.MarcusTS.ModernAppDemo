@@ -161,14 +161,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ResponsiveTasks.XamFormsSupport\ResponsiveTasks.XamFormsSupport.csproj">
-      <Project>{31574931-2b2b-4249-b663-fccbbd32442e}</Project>
-      <Name>ResponsiveTasks.XamFormsSupport</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\SharedForms\SharedForms.csproj">
-      <Project>{2b367f1a-1015-48b3-b58a-d718ea178d95}</Project>
-      <Name>SharedForms</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ModernAppDemo\ModernAppDemo.csproj">
       <Project>{3a961740-20fd-42d8-ae02-4110451b0675}</Project>
       <Name>ModernAppDemo</Name>
