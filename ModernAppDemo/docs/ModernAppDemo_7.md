@@ -1,6 +1,6 @@
 # Today's Forecast: DRY and Variable
 
-Xamarin is, above all else, a platform based on <B>behavioral C#</B>.  The closer we abide by the design principles of C#, the better the result.  An app should be brief, centralized/shared, compile-time type-safe, manageable, scalable and <B><I>gorgeous</I></B>.  That is a high bar to meet for any programmer.
+Xamarin is, above all else, a platform based on **behavioral C#**.  The closer we abide by the design principles of C#, the better the result.  An app should be brief, centralized/shared, compile-time type-safe, manageable, scalable and ***gorgeous***.  That is a high bar to meet for any programmer.
 
 We will focus on several fundamental concepts in C# behavioral thinking:
 
@@ -11,11 +11,11 @@ We will focus on several fundamental concepts in C# behavioral thinking:
 ## There is No Good Sort of Redundancy
 ----------------------------------------------------------------------------------------
 
-<B>DRY</B> -- <I>"Don't Repeat Yourself"</I> -- was doomed to misunderstanding from the start.  Remember the commercials for "How Dry I Am?"  It seems a bit glib.  Of course I am dry !!!  So let's break this down a bit.
+**DRY** -- *"Don't Repeat Yourself"* -- was doomed to misunderstanding from the start.  Remember the commercials for "How Dry I Am?"  It seems a bit glib.  Of course I am dry !!!  So let's break this down a bit.
 
 ### Programs Are Learning Systems Based on Centralization of Logic
 
-High-Tech writers often bandy about terms like "Machine Intelligence" and "Learning Systems" as if those things were some part of a glorious but distant Sci-Fi future.  In fact, they are the very basis of C# behavioral programming, but <B><I>only</I></B> when the language is used according to its design principles.
+High-Tech writers often bandy about terms like "Machine Intelligence" and "Learning Systems" as if those things were some part of a glorious but distant Sci-Fi future.  In fact, they are the very basis of C# behavioral programming, but ***only*** when the language is used according to its design principles.
 
 Programs *(and people)* learn by **correcting** their mistakes and **remembering** their lessons.  This is their accumulated "wisdom". A C# behavioral program is the same.  This code contains both mistakes and lost opportunities. See if you can spot them:
 
@@ -224,7 +224,7 @@ We have two goals in programming:
 ----------------------------------------------------------------------------------------
 ## A Program Is **Variable**, Not Static
 ----------------------------------------------------------------------------------------
-<img src="docs/ball_bearings_assorted.jpg" width="300" align="right" />
+<img src="images/ball_bearings_assorted.jpg" width="300" align="right" />
 
 Most of the classes in a behavioral C# app are meant to learn, change, and be consumed.  The entire app is like a **handful of ball bearings**. 
 

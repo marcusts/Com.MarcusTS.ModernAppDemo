@@ -3,9 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-    <Version>1.0.3</Version>
-    <AssemblyVersion>1.0.3.0</AssemblyVersion>
-    <FileVersion>1.0.3.0</FileVersion>
+    <Version>1.0.4</Version>
+    <AssemblyVersion>1.0.4.0</AssemblyVersion>
+    <FileVersion>1.0.4.0</FileVersion>
     <Copyright>2021, Marcus Technical Services</Copyright>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
@@ -18,6 +18,7 @@
     <DocumentationFile>M:\MyDocs\Dev\MtsShared\ModernAppDemo\ModernAppDemo\ModernAppDemo\ModernAppDemo.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
     <PlatformTarget>x64</PlatformTarget>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>

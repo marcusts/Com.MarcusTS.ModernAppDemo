@@ -1,13 +1,13 @@
 # A Fully Automated ("Viewless") UI<BR/> Using View Model Attributes
 
-<img src="docs/create_account_screen.jpg" width="300" align="right" />
+<img src="images/create_account_screen.jpg" width="300" align="right" />
 
-This is the [Modern App Demo](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo)'s <B>Create Account</B> View.  There is something quite unusual about it.  It does not contain a "view" in the classical sense.
+This is the [Modern App Demo](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo)'s **Create Account** View.  There is something quite unusual about it.  It does not contain a "view" in the classical sense.
 
 <BR/>
 <BR/>
 
-Instead, this screen leverages a <B>FlexViewWithTasks</B> from the [ResponsiveTasks.XamFormsSupport library](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport). Here's the source code, digested a bit for clarity:
+Instead, this screen leverages a **FlexViewWithTasks** from the [ResponsiveTasks.XamFormsSupport library](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport). Here's the source code, digested a bit for clarity:
 
 ``` csharp
 public class CreateAccountView : FlexViewWithTasks, ICreateAccountView
@@ -52,7 +52,7 @@ public class CreateAccountView : FlexViewWithTasks, ICreateAccountView
 }
 ```
 
-The <B>FlexViewWithTasks</B> is a generic view that displays any sort of "tile-like" sub-view that represents a single view model property.  It is only derived for customization. The Create Account View adds a password comparison validator and a few buttons for the user to tap.  That's the entire thing.
+The **FlexViewWithTasks** is a generic view that displays any sort of "tile-like" sub-view that represents a single view model property.  It is only derived for customization. The Create Account View adds a password comparison validator and a few buttons for the user to tap.  That's the entire thing.
 
 The view model is also quite spare:
 
@@ -88,19 +88,19 @@ public class CreateAccountViewModel : WizardViewModelWithTasks, ICreateAccountVi
     ... other properties below
 ```
 
-Notice that the view model  only sets the property and <I>(if set)</I>, re-checks a command to activate the Submit button once the view has been legally completed by the user.  It doesn't do anything else.  How is that possible?
+Notice that the view model  only sets the property and *(if set)*, re-checks a command to activate the Submit button once the view has been legally completed by the user.  It doesn't do anything else.  How is that possible?
 
-The answer is <I>attributed programming</I>.  In this case, the custom attribute <B>ValidatableTwoWayNonEmptyViewModelValidationAttribute</B>. That's a long-winded derived atttribute based on the <B>ViewModelValidationAttribute</B> base class:
+The answer is *attributed programming*.  In this case, the custom attribute **ValidatableTwoWayNonEmptyViewModelValidationAttribute**. That's a long-winded derived atttribute based on the **ViewModelValidationAttribute** base class:
 
 ``` csharp
 public class ViewModelValidationAttribute : Attribute, IViewModelValidationAttribute
 ```
 
-The <B>ViewModelValidationAttribute</B> class declares a property for each of the possible attribute settings.  These include things like the binding mode for the view model, the size and shape of the input field, etc.  The class is not meant to do anything -- only to convert the user settings from the attributed view model into an actual class variable that can be used at run-time.
+The **ViewModelValidationAttribute** class declares a property for each of the possible attribute settings.  These include things like the binding mode for the view model, the size and shape of the input field, etc.  The class is not meant to do anything -- only to convert the user settings from the attributed view model into an actual class variable that can be used at run-time.
 
 ## The Magic Trick Revealed
 
-Let's return to the automated view producer, the <B>FlexViewWithTasks</B>, to see how it digests an attributed view model.
+Let's return to the automated view producer, the **FlexViewWithTasks**, to see how it digests an attributed view model.
 
 ``` csharp
 public class FlexViewWithTasks : 
@@ -162,7 +162,7 @@ public class FlexViewWithTasks :
 }
 ```
 
-The method call to <B>CreateEditableEntry</B> is also worth noting, as it in turn calls this method:
+The method call to **CreateEditableEntry** is also worth noting, as it in turn calls this method:
 
 ``` csharp
 public virtual 
@@ -189,7 +189,7 @@ The method determines what sort of editor to create based on the input type whic
 
 ## How (and When) To Use This Sort of "Trick"
 
-Philosophically, Xamarin should be made up of MVVM-style <B><I>separated concerns</I></B>.  This approach bends the rules slightly. The view model drives many details about <B><I>how</I></B> the view appears. On the other hand, sometimes the UI view is just a set of rote properties that are mostly similar to each other.  This actually helps the user to understand what to do.  The view model can provide these basic attributes, and the view can be built without the heavy-duty approach that would otherwise be required.  So use this trick for entry/input views such as Login or Create Account.
+Philosophically, Xamarin should be made up of MVVM-style ***separated concerns***.  This approach bends the rules slightly. The view model drives many details about ***how*** the view appears. On the other hand, sometimes the UI view is just a set of rote properties that are mostly similar to each other.  This actually helps the user to understand what to do.  The view model can provide these basic attributes, and the view can be built without the heavy-duty approach that would otherwise be required.  So use this trick for entry/input views such as Login or Create Account.
 
 
 

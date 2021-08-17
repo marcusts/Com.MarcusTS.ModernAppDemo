@@ -1,6 +1,6 @@
 # Keeping MVVM Truly Light
 
-A common interview question is, <I>"What MVVM frameworks do you rely on for creating Xamarin apps?</I>" I simply respond, <I>"Whatever we have learned over time is, in effect, our framework."</I> This always evokes a puzzled expression.  Most IT managers, and many architects, assume that all they have to do is drop a quarter into a vending machine, grab a cute and tasty MVVM Framework, and wa-la! Instant gratification. Could so many programmers be <B><I>wrong?</I></B>
+A common interview question is, *"What MVVM frameworks do you rely on for creating Xamarin apps?*" I simply respond, *"Whatever we have learned over time is, in effect, our framework."* This always evokes a puzzled expression.  Most IT managers, and many architects, assume that all they have to do is drop a quarter into a vending machine, grab a cute and tasty MVVM Framework, and wa-la! Instant gratification. Could so many programmers be ***wrong?***
 
 Yup. And lazy.
 
@@ -8,7 +8,7 @@ Yup. And lazy.
 
 In the name of making something simpler, an MVVM framework creates a new layer on top of Xamarin. The creators claim this: so you can't build an airplane because it's too complicated? No problem!  I'll take your car and turn it into an airplane!
 
-<img src="docs/flying-cars-2.jpg  " width="400" align="right" />
+<img src="images/flying-cars-2.jpg  " width="400" align="right" />
 
 When you try to implement this "easy" approach, you find that:
 > * Every button, pedal, or lever is attached to another device that you have to learn to push, and that feels klunky
@@ -16,24 +16,24 @@ When you try to implement this "easy" approach, you find that:
 > * The thing drives a lot worse
 > * The thing barely flies; nobody is suicidal enough to volunteer to be the "test" pilot.
 
-<B><I>To translate:</I></B> The MVVM framework is telling you: <I>"just create a website and we'll convert it into a Xamarin app"</I>.
+***To translate:*** The MVVM framework is telling you: *"just create a website and we'll convert it into a Xamarin app"*.
 
 Here's what the framework really is:
 
 * A black box full of assumptions that you would not undertand if you were a Tibetan monk with a hundred years to read them.
-* <B><I>Massive!</I></B> The most famous MVVM framework contains <B><I>two million lines!</I></B>
-* Much harder to use than you could imagine, and way more time-consuming. One Fortune 50 company recently adopted an MVVM framework to ensure that they could deliver their app in one year and at a cost of $15 million. They ended up taking <B><I>three</I></B> years and <B><I>$45 million</I></B>, and the app was total crap!  
+* ***Massive!*** The most famous MVVM framework contains ***two million lines!***
+* Much harder to use than you could imagine, and way more time-consuming. One Fortune 50 company recently adopted an MVVM framework to ensure that they could deliver their app in one year and at a cost of $15 million. They ended up taking ***three*** years and ***$45 million***, and the app was total crap!  
 * Inflexible; buggy; ugly; stiff; not user-friendly.
 
-MVVM Frameworks do their "magic" by breaking every rule in the book regarding behavioral C# and Xamarin.  See my complete analysis <B>[here](https://marcusts.com/2018/04/06/the-mvvm-framework-anti-pattern).</B>
+MVVM Frameworks do their "magic" by breaking every rule in the book regarding behavioral C# and Xamarin.  See my complete analysis **[here](https://marcusts.com/2018/04/06/the-mvvm-framework-anti-pattern).**
 
 ## Do Anyone Actually Need an MVVM Framework?
 
 Nope.
 
-Look at the <B>[ModernAppDemo](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo)</B>.  It's everything I have learned since starting Xamarin. How does it accomplish a safe, reliable, faithful interpretation of MVVM?
+Look at the **[ModernAppDemo](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo)**.  It's everything I have learned since starting Xamarin. How does it accomplish a safe, reliable, faithful interpretation of MVVM?
 
-<img src="docs/mvvm_framework.png" width="100%" align="left" />
+<img src="images/mvvm_framework.png" width="100%" align="left" />
 
 </BR>
 Here's the coding side of the diagram:
@@ -80,8 +80,8 @@ protected override async Task RespondToViewModelChange(object newModule)
 ```    
 </font>
     
-<B><I>NOTE:</B> The call to <B>ChangeToolbarState</B> is a base class method from the <B>[XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport)
-    )</B> library, which we import here.</I>    
+***NOTE:** The call to **ChangeToolbarState** is a base class method from the **[XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport)
+    )** library, which we import here.*    
 
 The case statement simply sks about the crrent view model interface. All calls are quite generic, mentioning only an interface and class for a specific view. No other decisions are made; this is your entire involvement for a simple UI.
     
@@ -139,15 +139,15 @@ protected override async Task RespondToAppStateChange(string newState, bool andR
     
 </font>
     
-<B><I>NOTE:</B> The call to <B>ChangeContentView</B> is also a base class method from the <B>[XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport)
-    )</B> library.</I>
+***NOTE:** The call to **ChangeContentView** is also a base class method from the **[XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport)
+    )** library.*
     
-The <B>APP_STATES</B> are string constants that you can easaily modify for your own purposes.
+The **APP_STATES** are string constants that you can easaily modify for your own purposes.
     
 We do pass a few functions here to ensure that the user is logged in, etc. You can re-arrange these to suit your own requirments.
     
 ### DI CONTAINER
-The DI <I>("Dependency Injection")</I> container constructs classes using standardized rules and based on strct interface contracts. This container is often used to inject parameters into classes being constructed. It is a standard feature of so-called MVVM frameworks.  This DI Container is mine -- [check it out](https://github.com/marcusts/Com.MarcusTS.SmartDI).
+The DI *("Dependency Injection")* container constructs classes using standardized rules and based on strct interface contracts. This container is often used to inject parameters into classes being constructed. It is a standard feature of so-called MVVM frameworks.  This DI Container is mine -- [check it out](https://github.com/marcusts/Com.MarcusTS.SmartDI).
 
     
     
