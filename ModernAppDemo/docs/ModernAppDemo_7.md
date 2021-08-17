@@ -224,7 +224,7 @@ We have two goals in programming:
 ----------------------------------------------------------------------------------------
 ## A Program Is **Variable**, Not Static
 ----------------------------------------------------------------------------------------
-<img src="images/ball_bearings_assorted.jpg" width="300" align="right" />
+<img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/ball_bearings_assorted.jpg" width="300" align="right" />
 
 Most of the classes in a behavioral C# app are meant to learn, change, and be consumed.  The entire app is like a **handful of ball bearings**. 
 

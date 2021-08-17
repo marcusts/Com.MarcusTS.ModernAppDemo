@@ -6,7 +6,7 @@ In the modern age, users don't want a desktop or even a laptop app. They want a 
 
 ### Button Taps
 
-<img src="images/Flowable_App_Login_Button_Pressed.gif" width="300" align="right" />
+<img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/Flowable_App_Login_Button_Pressed.gif" width="300" align="right" />
 
 The easiest way to introduce animations into an app is at any location where the user taps, sch as buttons.  Add some subtle "haptic feedback" so the user also ***hears*** that they have tapped.
 
@@ -39,7 +39,7 @@ The easiest way to introduce animations into an app is at any location where the
 
 ### "Flowable" Tiles
 
-<img src="images/Flowable_App_Tiles_Flowing_In.gif" width="300" align="right" />
+<img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/Flowable_App_Tiles_Flowing_In.gif" width="300" align="right" />
 
 In an animated app, pages are abandoned. Instead, we think of collections of tiles.  Each tile represents a complete, atomic piece of a view.  The views are inserted into a single, static main page ("the app").
 
@@ -70,7 +70,7 @@ This leaves us free to animate the tile in using clever techniques.  This enhanc
 
 ### Dynamically Reshaping Tiles
 
-<img src="images/Flowable_App_Tile_Resizing.gif" width="300" align="right" />
+<img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/Flowable_App_Tile_Resizing.gif" width="300" align="right" />
 
 A *"tile"* is also dynamically resizable and reshapeable. This maintains the user's sense that everything they see if really just a part of am engaging, constantly changing stage that remains stable before them, very much like the stage used for public plays.
 
@@ -100,7 +100,7 @@ See [**The New "Navigationless" UI**](https://github.com/marcusts/Com.MarcusTS.M
 
 ## Complete Flowable App Demo
 
-<img src="images/Flowable_App_Complete.gif" width="300" align="right" />
+<img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/Flowable_App_Complete.gif" width="300" align="right" />
 
 Here are all of the snippets put together to show you the full user experience for the workflow.
 

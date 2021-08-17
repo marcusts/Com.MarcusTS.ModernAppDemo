@@ -4,7 +4,7 @@
 
 Xamarin's creators wanted to create apps, but didn't fundamentally understand them.  So when it came to navigation, they implemented what they knew: a web-like UI with irritating and antiquated features:
 
-<img src="images/bad_app_design_with_menu.png" width="300" align="right" />
+<img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/bad_app_design_with_menu.png" width="300" align="right" />
 
 * A large hamburger menu that drags open and **covers the screen**, causing a loss of ***scope***.  The user feels "lost" whenever the menu is pen.
 * **Page-based** navigation, so after the user selects a menu item, the entire app screen refreshes.  The existing page is destroyed. A new page blows into place, usually with the same basic structure.
@@ -50,7 +50,7 @@ Does this really make a lot more sense?  The user now has ***false*** back navig
 
 ## Old-Style App Design
 
-<img src="images/old_web_page.png" width="400" align="right" />
+<img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/old_web_page.png" width="400" align="right" />
 
 This is a typical old-fashioned app design.  Note that the keyboard is open, which occurs whenever the user can edit.
 
@@ -71,7 +71,7 @@ Not only is the page used inefficiently.  It is also blown away and replaced con
 
 ## The "Navigationless" One-Page App
 
-<img src="images/single_page_app.png" width="400" align="right" />
+<img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/single_page_app.png" width="400" align="right" />
 
 Design is a beautiful thing, but a cruel task-master.  Design requires us to abandon what we think we know about something and to restart with only **design principles** in mind: how to do a thing elegantly and with the least effort.  At  this point, the page concept itself comes into question.  After all, isn't the app just a single page fundamentally?  If the page has a title and a toolbar, why destroy that to do something similar?
 
@@ -86,6 +86,6 @@ If they are editing, the keyboard will be visible and will hide the navigation. 
 
 This new type of *"master single page"* is never destroyed. Instead, its views are injected with various sub-views. The only exception is login, which has its own unique page and views.
 
-<img src="images/tabbed_demo_live.gif" width="400" align="right" />
+<img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/tabbed_demo_live.gif" width="400" align="right" />
 
 Here is an animated GIF showing the new tabbed UI:

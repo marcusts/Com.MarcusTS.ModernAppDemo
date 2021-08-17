@@ -8,7 +8,7 @@ Yup. And lazy.
 
 In the name of making something simpler, an MVVM framework creates a new layer on top of Xamarin. The creators claim this: so you can't build an airplane because it's too complicated? No problem!  I'll take your car and turn it into an airplane!
 
-<img src="images/flying-cars-2.jpg  " width="400" align="right" />
+<img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/flying-cars-2.jpg  " width="400" align="right" />
 
 When you try to implement this "easy" approach, you find that:
 > * Every button, pedal, or lever is attached to another device that you have to learn to push, and that feels klunky
@@ -33,7 +33,7 @@ Nope.
 
 Look at the **[ModernAppDemo](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo)**.  It's everything I have learned since starting Xamarin. How does it accomplish a safe, reliable, faithful interpretation of MVVM?
 
-<img src="images/mvvm_framework.png" width="100%" align="left" />
+<img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/mvvm_framework.png" width="100%" align="left" />
 
 </BR>
 Here's the coding side of the diagram:

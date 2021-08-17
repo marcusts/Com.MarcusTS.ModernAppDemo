@@ -14,7 +14,7 @@ For the programmer, this sort of oddity means that coding can feel like "death a
 
 ## Customizing the UI from the Ground Up
 
-<img src="images/login_screen_cropped.png" width="300" align="right" />
+<img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/login_screen_cropped.png" width="300" align="right" />
 
 The solution is obvious: stop relying on most native controls for Xamarin.  This does not mean that the final code being output is not native. We will only change the UI controls themselves.
 
@@ -32,7 +32,7 @@ Take the Modern App Demo's login screen.  Can you tell what has been customized 
 </BR>
 </BR>
 
-<img src="images/login_screen_with_callouts.png" width="500" align="right" />
+<img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/login_screen_with_callouts.png" width="500" align="right" />
 
 Only the humble **Xamarin.Forms.Label** has survived!  Otherwise, we have used what we originally called an open source **ShapeView** -- a ContentView "frame" that contains anything, and comes with healthy border support. That control was eventually replaced by another open source library called the [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView), so we just derived that and added some new functionality.  It is still called **ShapeView** inside our own forms controls libraries: [SharedForms](https://github.com/marcusts/Com.MarcusTS.SharedForms) and [ResponsveTasks.XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport).
 
@@ -50,7 +50,7 @@ Only the humble **Xamarin.Forms.Label** has survived!  Otherwise, we have used w
 
 ## Styling A Custom Control: The Tri-State Image Label Button
 
-<img src="images/dashboard.jpg" width="300" align="right" />
+<img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/dashboard.jpg" width="300" align="right" />
 
 Our custom controls can provide a much cleaner and more consistent UI for your app. But they also provide a much more powerful styling methodology than you would find in old-style Xamarin controls.  Take the TriStateImageLabelButton*{WithTasks}* from the [ResponsveTasks.XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport) as an example.  This is the "button" you see on the login screen from the earlier screen-shots.  There's an even better example once you log in. From the login screen, type:
 

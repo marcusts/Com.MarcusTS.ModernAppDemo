@@ -4,7 +4,7 @@ Ideally, IT philosophy is grounded in ***fundamentals***.  Unfortunately, the ag
 
 ## View Models Cannot Know About Other View Models
 
-<img src="images/view_model_to_view_model_navigation.png" width="600" align="right" />
+<img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/view_model_to_view_model_navigation.png" width="600" align="right" />
 
 The latest ugly splotch of bad design is *"view model to view model navigation"*.  This is promoted by Microsoft Prism, MVVM Cross, and others. The actual source of this misbegotten concept is the advent of **page navigation** and the associated **back stack**.  Xamarin adopted this because they only understood "web-like" design concepts. MVVM frameworks have extended this convention it to its nth degree most ridiculous state: view models now know about ***other*** view models.
 
@@ -18,7 +18,7 @@ This approach directly violates C# behavioral guidance:
 
 ## View Models -- The Right Way
 
-<img src="images/view_model_proper_navigation.png" width="600" align="right" />
+<img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/view_model_proper_navigation.png" width="600" align="right" />
 
 Most view models don't have a lot to do with actual workflow.  Most of them have two key buttons near the bottom: **Cancel** and **Continue**.  In essence, the view model can be considered to be a Boolean, or perhaps more flexibly, a ***nullable*** Boolean.  This is because the user might navigate away using unexpected or unknown means, closing the view and view model *(think of hitting the power button on the phone, or using a toolbar to jump out without notice)*.  This third condition would therefore return as **null**.  Otherwise, the view model would return **True** or **False**.  That's all, folks.
 
