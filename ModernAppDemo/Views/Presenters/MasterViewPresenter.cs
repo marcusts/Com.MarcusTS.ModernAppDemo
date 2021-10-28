@@ -24,53 +24,51 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
-// *********************************************************************************6
+// *********************************************************************************
 
-namespace ModernAppDemo.Views.Presenters
+namespace Com.MarcusTS.ModernAppDemo.Views.Presenters
 {
    using System.Threading.Tasks;
-   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.Pages;
-   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.Presenters;
+   using Com.MarcusTS.ModernAppDemo.ViewModels;
+   using Com.MarcusTS.ModernAppDemo.Views.Subviews;
    using Com.MarcusTS.SharedUtils.Utils;
-   using Subviews;
-   using ViewModels;
+   using Com.MarcusTS.UI.XamForms.Common.Interfaces;
+   using Com.MarcusTS.UI.XamForms.Views.Presenters;
 
-   public interface IMasterViewPresenter : IMasterViewPresenterWithTasksBase
+   public interface IMasterViewPresenter : IMasterViewPresenterBase_Forms
+   { }
+
+   public class MasterViewPresenter : MasterViewPresenterBase_Forms, IMasterViewPresenter
    {
-   }
+      public MasterViewPresenter( ICanShowProgressSpinner_Forms spinnerHost ) : base( spinnerHost )
+      { }
 
-   public class MasterViewPresenter : MasterViewPresenterWithTasksBase, IMasterViewPresenter
-   {
-      public MasterViewPresenter(ICanShowProgressSpinner spinnerHost) : base(spinnerHost)
+      protected override async Task RespondToViewModelChange( object newModule )
       {
-      }
-
-      protected override async Task RespondToViewModelChange(object newModule)
-      {
-
-         if (newModule is IDashboardViewModel)
+         if ( newModule is IDashboardViewModel )
          {
-            await ChangeContentView<IDashboardTitledFlexViewHost, DashboardTitledFlexViewHost>(newModule).WithoutChangingContext();
+            await ChangeContentView<IDashboardTitledFlexViewHost, DashboardTitledTableViewHost>( newModule )
+              .WithoutChangingContext();
          }
-         else if (newModule is ISettingsViewModel)
+         else if ( newModule is ISettingsViewModel )
          {
-            await ChangeContentView<ISettingsTitledFlexViewHost, SettingsTitledFlexViewHost>(newModule).WithoutChangingContext();
+            await ChangeContentView<ISettingsTitledFlexViewHost, SettingsTitledFlexViewHost>( newModule )
+              .WithoutChangingContext();
          }
-         else if (newModule is IAccountsViewModel)
+         else if ( newModule is ILogInViewModel )
          {
-            await ChangeContentView<IAccountsTitledFlexViewHost, AccountsTitledFlexViewHost>(newModule).WithoutChangingContext();
+            await ChangeContentView<ILogInTitledFlexViewHost, LogInTitledFlexViewHost>( newModule )
+              .WithoutChangingContext();
          }
-         else if (newModule is ILogInViewModel)
+         else if ( newModule is ICreateAccountViewModel )
          {
-            await ChangeContentView<ILogInTitledFlexViewHost, LogInTitledFlexViewHost>(newModule).WithoutChangingContext();
+            await ChangeContentView<ICreateAccountTitledViewHost, CreateAccountTitledViewHost>( newModule )
+              .WithoutChangingContext();
          }
-         else if (newModule is ICreateAccountViewModel)
+         else if ( newModule is ICreationSuccessViewModel )
          {
-            await ChangeContentView<ICreateAccountTitledFlexViewHost, CreateAccountTitledFlexViewHost>(newModule).WithoutChangingContext();
-         }
-         else if (newModule is ICreationSuccessViewModel)
-         {
-            await ChangeContentView<ICreationSuccessTitledFlexViewHost, CreationSuccessTitledFlexViewHost>(newModule).WithoutChangingContext();
+            await ChangeContentView<ICreationSuccessTitledFlexViewHost, CreationSuccessTitledFlexViewHost>( newModule )
+              .WithoutChangingContext();
          }
       }
    }

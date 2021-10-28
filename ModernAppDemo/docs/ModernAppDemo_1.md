@@ -80,7 +80,7 @@ protected override async Task RespondToViewModelChange(object newModule)
 ```    
 </font>
     
-***NOTE:** The call to **ChangeToolbarState** is a base class method from the **[XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport)
+***NOTE:** The call to **ChangeToolbarState** is a base class method from the **[XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.UI.XamForms)
     )** library, which we import here.*    
 
 The case statement simply sks about the crrent view model interface. All calls are quite generic, mentioning only an interface and class for a specific view. No other decisions are made; this is your entire involvement for a simple UI.
@@ -139,7 +139,7 @@ protected override async Task RespondToAppStateChange(string newState, bool andR
     
 </font>
     
-***NOTE:** The call to **ChangeContentView** is also a base class method from the **[XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport)
+***NOTE:** The call to **ChangeContentView** is also a base class method from the **[XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.UI.XamForms)
     )** library.*
     
 The **APP_STATES** are string constants that you can easaily modify for your own purposes.

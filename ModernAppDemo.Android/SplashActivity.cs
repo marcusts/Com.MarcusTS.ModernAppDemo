@@ -26,13 +26,10 @@
 // SOFTWARE.
 // *********************************************************************************
 
-namespace ModernAppDemo.Android
+using MainActivity = ModernAppDemo.Android.MainActivity;
+
+namespace Com.MarcusTS.ModernAppDemo.Android
 {
-   using ModernAppDemo.Views.App;
-   using System.Threading.Tasks;
-   using Xamarin.Essentials;
-   using System;
-   using System.Diagnostics;
    using global::Android.App;
    using global::Android.Content;
    using global::Android.Content.PM;

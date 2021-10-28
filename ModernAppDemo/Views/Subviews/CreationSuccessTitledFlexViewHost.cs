@@ -26,16 +26,24 @@
 // SOFTWARE.
 // *********************************************************************************
 
-namespace ModernAppDemo.Views.Subviews
+namespace Com.MarcusTS.ModernAppDemo.Views.Subviews
 {
-    using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.Subviews;
+   using Com.MarcusTS.SharedUtils.Utils;
+   using Com.MarcusTS.UI.XamForms.Common.Interfaces;
+   using Com.MarcusTS.UI.XamForms.Views.Subviews;
+   using Xamarin.Forms;
 
-    public interface ICreationSuccessTitledFlexViewHost : ITitledFlexViewHost
-    {
-    }
+   public interface ICreationSuccessTitledFlexViewHost : ITitledViewHostBase_Forms
+   { }
 
-    public class CreationSuccessTitledFlexViewHost : TitledFlexViewHost, ICreationSuccessTitledFlexViewHost
-    {
-        protected override IFlexViewWithTasksBase DerivedFlexViewHost => new CreationSuccessView();
-    }
+   public class CreationSuccessTitledFlexViewHost : TitledViewHostBase_Forms, ICreationSuccessTitledFlexViewHost
+   {
+      public CreationSuccessTitledFlexViewHost( ICanShowProgressSpinner_Forms spinnerHost ) : base( spinnerHost )
+      {
+         GetDerivedView = new CreationSuccessView( spinnerHost );
+         SetForceFullScreen( true ).FireAndFuhgetAboutIt();
+      }
+
+      protected override View GetDerivedView { get; }
+   }
 }

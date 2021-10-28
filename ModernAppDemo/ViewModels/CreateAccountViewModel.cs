@@ -4,19 +4,19 @@
 // file=CreateAccountViewModel.cs
 // company="Marcus Technical Services, Inc.">
 // </copyright>
-//
+// 
 // MIT License
-//
+// 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-//
+// 
 // The above copyright notice and this permission notice shall be included in all
 // copies or substantial portions of the Software.
-//
+// 
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
@@ -26,35 +26,33 @@
 // SOFTWARE.
 // *********************************************************************************
 
-using System;
-using System.Threading.Tasks;
-using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Common.Utils;
-using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.ViewModels;
-using Com.MarcusTS.SharedForms.Common.Behaviors;
-using Com.MarcusTS.SharedForms.Common.Interfaces;
-using Com.MarcusTS.SharedForms.ViewModels;
-using Com.MarcusTS.SharedUtils.Utils;
-using ModernAppDemo.Common.Interfaces;
-using ModernAppDemo.Common.Utils;
-using SQLite;
-
-namespace ModernAppDemo.ViewModels
+namespace Com.MarcusTS.ModernAppDemo.ViewModels
 {
-   public interface ICreateAccountViewModel : IWizardViewModelWithTasks, ICommonAccountProps,
-      IHandleNullableDateTimeChanges
-   {
-   }
+   using System;
+   using System.Threading.Tasks;
+   using Com.MarcusTS.ModernAppDemo.Common.Interfaces;
+   using Com.MarcusTS.PlatformIndependentShared.Common.Interfaces;
+   using Com.MarcusTS.PlatformIndependentShared.Common.Utils;
+   using Com.MarcusTS.PlatformIndependentShared.ViewModels;
+   using Com.MarcusTS.ResponsiveTasks;
+   using Com.MarcusTS.SharedUtils.Utils;
+   using Com.MarcusTS.UI.XamForms.Common.Validations;
+   using Com.MarcusTS.UI.XamForms.ViewModels;
+   using SQLite;
 
-   public class CreateAccountViewModel : WizardViewModelWithTasks, ICreateAccountViewModel
+   public interface ICreateAccountViewModel : IWizardViewModel_Forms, ICommonAccountProps,
+                                              IHandleNullableDateTimeChangeTask
+   { }
+
+   public class CreateAccountViewModel : WizardViewModel_Forms, ICreateAccountViewModel
    {
-      private string _confirmPassword;
-      private string _firstName;
-      private bool _isTheSkyBlue;
-      private string _lastName;
-      private string _password;
+      private string    _confirmPassword;
+      private string    _firstName;
+      private string    _lastName;
+      private string    _password;
       private DateTime? _serviceStartDate;
-      private string _stateOfResidence;
-      private string _userName;
+      private string    _stateOfResidence;
+      private string    _userName;
 
       public CreateAccountViewModel()
       {
@@ -66,124 +64,137 @@ namespace ModernAppDemo.ViewModels
          ServiceStartDate = DateTime.Now.Date;
       }
 
-      [CommonViewModelValidations.ValidatableTwoWayNonEmptyViewModelValidationAttribute(4,
-         IsPassword = ViewModelValidationAttribute_Static.TRUE_BOOL,
-         CanUnmaskPassword = ViewModelValidationAttribute_Static.TRUE_BOOL,
-         PlaceholderText = CommonViewModelValidations.CONFIRM_PASSWORD_PLACEHOLDER_TEXT,
-         ValidatorType = typeof(ComparisonEntryValidatorBehavior))]
+      [CommonViewModelValidations_Forms.ValidatableTwoWayNonEmptyViewModelValidationAttribute( 4,
+         IsPassword = ViewModelCustomAttribute_Static_PI.TRUE_BOOL,
+         CanUnmaskPassword = ViewModelCustomAttribute_Static_PI.TRUE_BOOL,
+         PlaceholderText = CommonViewModelValidations_Forms.CONFIRM_PASSWORD_PLACEHOLDER_TEXT,
+         ValidatorType = typeof( ComparisonEntryValidatorBehavior_Forms ) )]
       public string ConfirmPassword
       {
          get => _confirmPassword;
          set
          {
-            if (SetProperty(ref _confirmPassword, value))
-               // WARNING Invalid TPL root.
-               VerifyCommandCanExecute().FireAndForget();
+            if ( SetProperty( ref _confirmPassword, value ) )
+
+
+            {
+               VerifyCommandCanExecute().FireAndFuhgetAboutIt();
+            }
          }
       }
 
-      [CommonViewModelValidations.ValidatableTwoWayNonEmptyViewModelValidationAttribute(7,
-         PlaceholderText = "Is the Sky Blue?",
-         InputTypeStr = InputTypes_RTXFS.InputTypes_RTFXS_CheckBoxInput)]
-      public bool IsTheSkyBlue
-      {
-         get => _isTheSkyBlue;
-         set
-         {
-            if (SetProperty(ref _isTheSkyBlue, value))
-               // WARNING Invalid TPL root.
-               VerifyCommandCanExecute().FireAndForget();
-         }
-      }
-
-      [CommonViewModelValidations.ValidatableTwoWayNonEmptyViewModelValidationAttribute(8,
-         PlaceholderText = "State of Residence?", InputTypeStr = InputTypes_RTXFS.InputTypes_RTFXS_StateInput)]
+      [CommonViewModelValidations_Forms.ValidatableTwoWayNonEmptyViewModelValidationAttribute( 8,
+         PlaceholderText = "State of Residence?", InputTypeStr = ValidationUtils_PI.STATE_INPUT_TYPE )]
       public string StateOfResidence
       {
          get => _stateOfResidence;
          set
          {
-            if (SetProperty(ref _stateOfResidence, value))
-               // WARNING Invalid TPL root.
-               VerifyCommandCanExecute().FireAndForget();
+            if ( SetProperty( ref _stateOfResidence, value ) )
+
+
+            {
+               VerifyCommandCanExecute().FireAndFuhgetAboutIt();
+            }
          }
       }
 
       // For storage only
       public string FirstAndLastName { get; set; }
 
-      [CommonViewModelValidations.ValidatableTwoWayNonEmptyViewModelValidationAttribute(0,
-         PlaceholderText = "First Name", ExcludedChars = CommonViewModelValidations.FORBIDDEN_CHARS)]
+      [CommonViewModelValidations_Forms.ValidatableTwoWayNonEmptyViewModelValidationAttribute( 0,
+         PlaceholderText = "First Name", ExcludedChars = CommonViewModelValidations_Forms.FORBIDDEN_CHARS,
+         IsInitialFocus = ViewModelCustomAttribute_Static_PI.TRUE_BOOL )]
       public string FirstName
       {
          get => _firstName;
          set
          {
-            if (SetProperty(ref _firstName, value))
-               // WARNING Invalid TPL root.
-               RefreshFirstAndLastName().FireAndForget();
+            if ( SetProperty( ref _firstName, value ) )
+
+
+            {
+               RefreshFirstAndLastName().FireAndFuhgetAboutIt();
+            }
          }
       }
 
       // For storage only
-      [PrimaryKey] [AutoIncrement] public int Id { get; set; }
+      [PrimaryKey, AutoIncrement,] public int Id { get; set; }
 
-      [CommonViewModelValidations.ValidatableTwoWayNonEmptyViewModelValidationAttribute(0,
-         PlaceholderText = "Last Name", ExcludedChars = CommonViewModelValidations.FORBIDDEN_CHARS)]
+      [CommonViewModelValidations_Forms.ValidatableTwoWayNonEmptyViewModelValidationAttribute( 1,
+         PlaceholderText = "Last Name", ExcludedChars = CommonViewModelValidations_Forms.FORBIDDEN_CHARS )]
       public string LastName
       {
          get => _lastName;
          set
          {
-            if (SetProperty(ref _lastName, value))
-               // WARNING Invalid TPL root.
-               RefreshFirstAndLastName().FireAndForget();
+            if ( SetProperty( ref _lastName, value ) )
+
+
+            {
+               RefreshFirstAndLastName().FireAndFuhgetAboutIt();
+            }
          }
       }
 
-      [CommonViewModelValidations.PasswordValidatableTwoWayNonEmptyViewModelValidationAttribute(3)]
+      [CommonViewModelValidations_Forms.PasswordValidatableTwoWayNonEmptyViewModelValidationAttribute( 3 )]
       public string Password
       {
          get => _password;
          set
          {
-            if (SetProperty(ref _password, value))
-               // WARNING Invalid TPL root.
-               VerifyCommandCanExecute().FireAndForget();
+            if ( SetProperty( ref _password, value ) )
+
+
+            {
+               VerifyCommandCanExecute().FireAndFuhgetAboutIt();
+            }
          }
       }
 
-      [CommonViewModelValidations.PhoneValidatableTwoWayNonEmptyViewModelValidationAttribute(5)]
+      [CommonViewModelValidations_Forms.PhoneValidatableTwoWayNonEmptyViewModelValidationAttribute( 5 )]
       public string Phone { get; set; }
 
-      [CommonViewModelValidations.DateTimeValidatableTwoWayNonEmptyViewModelValidationAttribute(6,
-         PlaceholderText = "Start Date")]
+      [CommonViewModelValidations_Forms.DateTimeValidatableTwoWayNonEmptyViewModelValidationAttribute( 6,
+         PlaceholderText = "Start Date" )]
       public DateTime? ServiceStartDate
       {
          get => _serviceStartDate;
          set
          {
-            if (SetProperty(ref _serviceStartDate, value))
-               // WARNING Invalid TPL root.
-               VerifyCommandCanExecute().FireAndForget();
+            if ( SetProperty( ref _serviceStartDate, value ) )
+
+
+            {
+               VerifyCommandCanExecute().FireAndFuhgetAboutIt();
+            }
          }
       }
 
-      [CommonViewModelValidations.UserNameValidatableTwoWayNonEmptyValidationAttribute(2)]
+      [CommonViewModelValidations_Forms.UserNameValidatableTwoWayNonEmptyValidationAttribute( 2 )]
       public string UserName
       {
          get => _userName;
          set
          {
-            if (SetProperty(ref _userName, value))
-               // WARNING Invalid TPL root.
-               VerifyCommandCanExecute().FireAndForget();
+            if ( SetProperty( ref _userName, value ) )
+
+
+            {
+               VerifyCommandCanExecute().FireAndFuhgetAboutIt();
+            }
          }
       }
 
-      public void HandleNullableResultChanged(DateTime? dateTime)
+      public Task HandleNullableResultChangeTask( IResponsiveTaskParams paramDict )
       {
-         ServiceStartDate = dateTime;
+         var dateTime = paramDict.GetTypeSafeValue<DateTime>( 0 );
+         {
+            ServiceStartDate = dateTime;
+         }
+
+         return Task.CompletedTask;
       }
 
       private async Task RefreshFirstAndLastName()

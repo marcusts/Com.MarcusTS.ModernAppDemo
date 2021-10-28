@@ -26,29 +26,29 @@
 // SOFTWARE.
 // *********************************************************************************
 
-using Com.MarcusTS.SharedForms.Views.Controls;
+using Com.MarcusTS.UI.XamForms.Views.Controls;
 using ModernAppDemo.Android;
 using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
+using Context = Android.Content.Context;
 
-[assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomEntryRenderer))]
+// HACK Crashes when we add Com.MarcusTS.
+[assembly: ExportRenderer( typeof( CustomEntry ), typeof( CustomEntryRenderer ) )]
+
 namespace ModernAppDemo.Android
 {
-   using Com.MarcusTS.SharedForms.Views.Controls;
    using Xamarin.Forms;
-   using global::Android.Content;
+   using Xamarin.Forms.Platform.Android;
 
-   class CustomEntryRenderer : EntryRenderer
+   internal class CustomEntryRenderer : EntryRenderer
    {
-      public CustomEntryRenderer(Context context) : base(context)
-      {
-      }
+      public CustomEntryRenderer( Context context ) : base( context )
+      { }
 
-      protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
+      protected override void OnElementChanged( ElementChangedEventArgs<Entry> e )
       {
-         base.OnElementChanged(e);
+         base.OnElementChanged( e );
 
-         Control?.SetBackground(null);
+         Control?.SetBackground( null );
       }
    }
 }

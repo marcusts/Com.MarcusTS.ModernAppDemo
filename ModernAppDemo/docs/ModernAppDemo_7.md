@@ -267,7 +267,7 @@ The Modern App Demo leverages a number of powerful, centralized libraries to pre
 [SharedUtils](https://github.com/marcusts/Com.MarcusTS.SharedUtils)
 [SharedForms](https://github.com/marcusts/Com.MarcusTS.SharedForms)
 [ResponsiveTasks](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks)
-[ResponsiveTasks.XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport)
+[UI.XamForms](https://github.com/marcusts/Com.MarcusTS.UI.XamForms)
 
 The key metrics for these libraries are:
 

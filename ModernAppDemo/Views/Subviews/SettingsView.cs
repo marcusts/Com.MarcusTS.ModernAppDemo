@@ -1,7 +1,7 @@
 ﻿// *********************************************************************************
 // Copyright @2021 Marcus Technical Services, Inc.
 // <copyright
-// file=DashboardView.cs
+// file=SettingsView.cs
 // company="Marcus Technical Services, Inc.">
 // </copyright>
 // 
@@ -26,21 +26,17 @@
 // SOFTWARE.
 // *********************************************************************************
 
-namespace ModernAppDemo.Views.Subviews
+namespace Com.MarcusTS.ModernAppDemo.Views.Subviews
 {
-   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.Subviews;
-   using Com.MarcusTS.SharedUtils.Utils;
+   using Com.MarcusTS.UI.XamForms.Common.Interfaces;
+   using Com.MarcusTS.UI.XamForms.Views.Subviews;
 
-   public interface ISettingsView : IFlexViewWithTasks_FlowLayout
+   public interface ISettingsView : IScrollableFlexView_Forms
+   { }
+
+   public class SettingsView : ScrollableFlexView_Forms, ISettingsView
    {
-
-   }
-
-   public class SettingsView : FlexViewWithTasks_FlowLayout, ISettingsView
-   {
-      public SettingsView()
-      {
-         SetForceFullScreen(true).FireAndForget();
-      }
+      public SettingsView( ICanShowProgressSpinner_Forms spinnerHost ) : base( spinnerHost )
+      { }
    }
 }

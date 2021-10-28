@@ -1,14 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-    <Version>1.0.5</Version>
-    <AssemblyVersion>1.0.5.0</AssemblyVersion>
-    <FileVersion>1.0.5.0</FileVersion>
+    <Version>2.0.1</Version>
+    <AssemblyVersion>2.0.1.0</AssemblyVersion>
+    <FileVersion>2.0.1.0</FileVersion>
     <Copyright>2021, Marcus Technical Services</Copyright>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <AssemblyName>Com.MarcusTS.ModernAppDemo</AssemblyName>
+    <RootNamespace>Com.MarcusTS.ModernAppDemo</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -22,7 +25,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="ModernAppDemo\docs\README.md" Pack="true" PackagePath="\" />
+    <Compile Remove="ModernAppDemo\**" />
+    <EmbeddedResource Remove="ModernAppDemo\**" />
+    <None Remove="ModernAppDemo\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,28 +48,30 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Common\Images\accounts_selected.png" />
     <EmbeddedResource Include="Common\Images\accounts_deselected.png" />
-    <EmbeddedResource Include="Common\Images\dashboard_selected.png" />
+    <EmbeddedResource Include="Common\Images\accounts_selected.png" />
     <EmbeddedResource Include="Common\Images\dashboard_deselected.png" />
+    <EmbeddedResource Include="Common\Images\dashboard_selected.png" />
     <EmbeddedResource Include="Common\Images\green_check_mark.jpg" />
-    <EmbeddedResource Include="Common\Images\logout_deselected.png" />
     <EmbeddedResource Include="Common\Images\logout_selected.png" />
-    <EmbeddedResource Include="Common\Images\settings_selected.png" />
+    <EmbeddedResource Include="Common\Images\logout_deselected.png" />
     <EmbeddedResource Include="Common\Images\settings_deselected.png" />
+    <EmbeddedResource Include="Common\Images\settings_selected.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.514" />
-    <PackageReference Include="AsyncAwaitBestPractices" Version="6.0.0" />
-    <PackageReference Include="AsyncAwaitBestPractices.MVVM" Version="6.0.0" />
-    <PackageReference Include="Com.MarcusTS.ResponsiveTasks.XamFormsSupport" Version="1.0.9" />
+    <PackageReference Include="Acr.UserDialogs" Version="7.2.0.534" />
+    <PackageReference Include="AsyncAwaitBestPractices" Version="6.0.2" />
+    <PackageReference Include="AsyncAwaitBestPractices.MVVM" Version="6.0.2" />
+    <PackageReference Include="Bogus" Version="33.1.1" />
+    <PackageReference Include="Com.MarcusTS.UI.XamForms" Version="2.0.1" />
     <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
-    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
-    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
-    <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="4.0.0.190-beta" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="4.1.0-beta" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
   </ItemGroup>
 
   <ItemGroup>

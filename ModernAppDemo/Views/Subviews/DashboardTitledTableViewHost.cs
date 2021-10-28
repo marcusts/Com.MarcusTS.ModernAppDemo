@@ -1,7 +1,7 @@
 ﻿// *********************************************************************************
 // Copyright @2021 Marcus Technical Services, Inc.
 // <copyright
-// file=AccountsViewTitledFlexViewHost.cs
+// file=DashboardTitledTableViewHost.cs
 // company="Marcus Technical Services, Inc.">
 // </copyright>
 // 
@@ -26,16 +26,31 @@
 // SOFTWARE.
 // *********************************************************************************
 
-namespace ModernAppDemo.Views.Subviews
+namespace Com.MarcusTS.ModernAppDemo.Views.Subviews
 {
-    using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.Subviews;
+   using Com.MarcusTS.SharedUtils.Utils;
+   using Com.MarcusTS.UI.XamForms.Common.Interfaces;
+   using Com.MarcusTS.UI.XamForms.Views.Subviews;
+using System.Threading.Tasks;
+   using Xamarin.Forms;
 
-    public interface IDashboardTitledFlexViewHost : ITitledFlexViewHost
-    {
-    }
+   /// <summary>
+   /// We take responsibility for the spinner on load
+   /// </summary>
+   public interface IDashboardTitledFlexViewHost : ITitledViewHostBase_Forms
+   { }
 
-    public class DashboardTitledFlexViewHost : TitledFlexViewHost, IDashboardTitledFlexViewHost
-    {
-        protected override IFlexViewWithTasksBase DerivedFlexViewHost => new DashboardView();
-    }
+   public class DashboardTitledTableViewHost : TitledViewHostBase_Forms, IDashboardTitledFlexViewHost
+   {
+      public DashboardTitledTableViewHost( ICanShowProgressSpinner_Forms spinnerHost ) : base( spinnerHost )
+      {
+         // Our derived view handles the spinner
+         PreserveSpinnerAfterRecreateUI = true;
+
+         GetDerivedView                 = new DashboardView( spinnerHost );
+         SetForceFullScreen( true ).FireAndFuhgetAboutIt();
+      }
+
+      protected override View GetDerivedView { get; }
+   }
 }

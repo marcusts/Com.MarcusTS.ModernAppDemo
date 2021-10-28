@@ -5,4 +5,4 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-[assembly: SuppressMessage("AsyncUsage", "AsyncFixer03:Fire-and-forget async-void methods or delegates", Justification = "<Pending>", Scope = "member", Target = "~M:ModernAppDemo.Common.Navigation.AppStateManager.#ctor(Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.Pages.ICanShowProgressSpinner)")]
+[assembly: SuppressMessage("AsyncUsage", "AsyncFixer03:Fire-and-forget async-void methods or delegates", Justification = "<Pending>", Scope = "member", Target = "~M:ModernAppDemo.Common.Navigation.AppStateManager.#ctor(Com.MarcusTS.UI.XamForms.Views.Pages.ICanShowProgressSpinner)")]

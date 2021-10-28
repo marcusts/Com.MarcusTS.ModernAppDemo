@@ -26,21 +26,20 @@
 // SOFTWARE.
 // *********************************************************************************
 
-namespace ModernAppDemo.ViewModels
+namespace Com.MarcusTS.ModernAppDemo.ViewModels
 {
-   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.ViewModels;
+   using Com.MarcusTS.UI.XamForms.ViewModels;
 
-   public interface ICreationSuccessViewModel : IWizardViewModelWithTasks
-   {
-   }
+   public interface ICreationSuccessViewModel : IWizardViewModel_Forms
+   { }
 
-   public class CreationSuccessViewModel : WizardViewModelWithTasks, ICreationSuccessViewModel
+   public class CreationSuccessViewModel : WizardViewModel_Forms, ICreationSuccessViewModel
    {
       public CreationSuccessViewModel()
       {
          Title = "Success!";
 
-         ValidationHelperWithTasks.RevalidateBehaviors();
+         ValidationHelper.RevalidateBehaviors();
       }
    }
 }

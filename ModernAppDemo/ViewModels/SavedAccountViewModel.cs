@@ -26,7 +26,7 @@
 // SOFTWARE.
 // *********************************************************************************
 
-namespace ModernAppDemo.ViewModels
+namespace Com.MarcusTS.ModernAppDemo.ViewModels
 {
    using System;
    using Common.Interfaces;

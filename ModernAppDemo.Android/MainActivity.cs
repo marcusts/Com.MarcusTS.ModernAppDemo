@@ -26,14 +26,18 @@
 // SOFTWARE.
 // *********************************************************************************
 
+
+// HACK Crashes when we add Com.MarcusTS.
 namespace ModernAppDemo.Android
 {
    using Acr.UserDialogs;
+using Com.MarcusTS.ModernAppDemo.Android;
+   using Com.MarcusTS.ModernAppDemo.Views.App;
+   using Com.MarcusTS.UI.XamForms.Views.Controls;
    using global::Android.App;
    using global::Android.Content.PM;
    using global::Android.OS;
    using global::Android.Runtime;
-   using Views.App;
    using Xamarin.Forms;
    using Xamarin.Forms.Platform.Android;
    
@@ -46,6 +50,8 @@ namespace ModernAppDemo.Android
       {
          base.OnCreate(savedInstanceState);
 
+         Forms.SetFlags("UseLegacyRenderers");
+         RoundedContentView.Init();
          Xamarin.Essentials.Platform.Init(this, savedInstanceState);
          Forms.Init(this, savedInstanceState);
          UserDialogs.Init(this);

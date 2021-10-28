@@ -4,19 +4,19 @@
 // file=LogInView.cs
 // company="Marcus Technical Services, Inc.">
 // </copyright>
-//
+// 
 // MIT License
-//
+// 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-//
+// 
 // The above copyright notice and this permission notice shall be included in all
 // copies or substantial portions of the Software.
-//
+// 
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
@@ -26,38 +26,48 @@
 // SOFTWARE.
 // *********************************************************************************
 
-namespace ModernAppDemo.Views.Subviews
+// #define FORCE_LOGIN_BUTTON_ON_MAIN_THREAD
+
+namespace Com.MarcusTS.ModernAppDemo.Views.Subviews
 {
    using System.Threading.Tasks;
-   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Common.Utils;
-   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.ViewModels;
-   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.Subviews;
+   using Com.MarcusTS.PlatformIndependentShared.Common.Utils;
    using Com.MarcusTS.SharedUtils.Controls;
    using Com.MarcusTS.SharedUtils.Utils;
-   using Xamarin.Essentials;
+   using Com.MarcusTS.UI.XamForms.Common.Interfaces;
+   using Com.MarcusTS.UI.XamForms.Common.Utils;
+   using Com.MarcusTS.UI.XamForms.ViewModels;
+   using Com.MarcusTS.UI.XamForms.Views.Controls;
+   using Com.MarcusTS.UI.XamForms.Views.Subviews;
    using Xamarin.Forms;
 
-   public interface ILogInView : IFlexViewWithTasks_FlowLayout
-   {
-   }
+   public interface ILogInView : IScrollableFlexView_Forms
+   { }
 
-   public class LogInView : FlexViewWithTasks_FlowLayout, ILogInView
+   public class LogInView : ScrollableFlexView_Forms, ILogInView
    {
-      protected override async Task BeforeSourceViewsAssigned(BetterObservableCollection<View> retViews)
+      protected override async Task BeforeSourceViewsAssigned( BetterObservableCollection<View> retViews )
       {
-         await base.BeforeSourceViewsAssigned(retViews).WithoutChangingContext();
+         await base.BeforeSourceViewsAssigned( retViews ).WithoutChangingContext();
+
+         if ( AnimatableLayout is IFlowableCollectionCanvas_Forms animatableLayoutAsFlowableCollectionCanvas )
+         {
+            await animatableLayoutAsFlowableCollectionCanvas.SetScrollBottomMargin( 0 ).WithoutChangingContext();
+         }
 
          // Add the save and new account buttons
-         if (BindingContext is IWizardViewModelWithTasks bindingContextAsWizardViewModelWithTasks)
+         if ( BindingContext is IWizardViewModel_Forms bindingContextAsWizardViewModel )
          {
-            if (MainThread.IsMainThread)
-            {
-               AddLoginButton();
-            }
-            else
-            {
-               MainThread.BeginInvokeOnMainThread(AddLoginButton);
-            }
+            ThreadHelper.ConsiderBeginInvokeActionOnMainThread( AddLoginButton,
+
+#if FORCE_LOGIN_BUTTON_ON_MAIN_THREAD
+               true
+#else
+               // ReSharper disable once RedundantArgumentDefaultValue
+               false
+#endif
+
+            );
          }
 
          // -----------------------------------------------------------------------------------------------
@@ -68,31 +78,36 @@ namespace ModernAppDemo.Views.Subviews
             var nextTabIndex = retViews.Count;
 
             var loginButton =
-               FlowableUtils.CreateFlowableControlButton(
+               FlowableUtils_Forms.CreateFlowableControlButton(
                   "Log In",
-                  bindingContextAsWizardViewModelWithTasks.NextCommand,
-                  bindingContextAsWizardViewModelWithTasks,
+                  bindingContextAsWizardViewModel.NextCommand,
+                  bindingContextAsWizardViewModel,
                   nextTabIndex++,
                   true,
-                  extraTopSpace: FlowableConst.DEFAULT_EXTRA_TOP_MARGIN);
+                  extraTopSpace: FlowableConst_PI.DEFAULT_EXTRA_TOP_MARGIN );
 
-            retViews.Add(loginButton as View);
+            retViews.Add( loginButton as View );
 
             var createAccountButton =
-               FlowableUtils.CreateFlowableControlButton(
+               FlowableUtils_Forms.CreateFlowableControlButton(
                   "New User? Create Account",
-                  bindingContextAsWizardViewModelWithTasks.CancelCommand,
-                  bindingContextAsWizardViewModelWithTasks,
+                  bindingContextAsWizardViewModel.CancelCommand,
+                  bindingContextAsWizardViewModel,
+                  // ReSharper disable once RedundantAssignment
                   nextTabIndex++,
                   false,
-                  ThemeUtils_RTXFS.MAIN_STAGE_THEME_COLOR,
+                  ThemeUtils_Forms.MAIN_STAGE_THEME_COLOR,
                   fontAttributes: FontAttributes.Italic,
                   backColor: Color.Transparent
                );
 
-            retViews.Add(createAccountButton as View);
+            retViews.Add( createAccountButton as View );
          }
+
          // -----------------------------------------------------------------------------------------------
       }
+
+      public LogInView( ICanShowProgressSpinner_Forms spinnerHost ) : base( spinnerHost )
+      { }
    }
 }

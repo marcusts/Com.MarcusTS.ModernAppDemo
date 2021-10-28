@@ -26,19 +26,18 @@
 // SOFTWARE.
 // *********************************************************************************
 
-namespace ModernAppDemo.ViewModels
+namespace Com.MarcusTS.ModernAppDemo.ViewModels
 {
-   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.ViewModels;
-   using Com.MarcusTS.SharedForms.ViewModels;
+   using Com.MarcusTS.PlatformIndependentShared.ViewModels;
    using Com.MarcusTS.SharedUtils.Utils;
-   using Common.Interfaces;
-   using static ModernAppDemo.Common.Utils.CommonViewModelValidations;
+   using Com.MarcusTS.UI.XamForms.Common.Validations;
+   using Com.MarcusTS.UI.XamForms.ViewModels;
+   using ModernAppDemo.Common.Interfaces;
 
-   public interface ILogInViewModel : IWizardViewModelWithTasks, ICanLogIn
-   {
-   }
+   public interface ILogInViewModel : IWizardViewModel_Forms, ICanLogIn
+   { }
 
-   public class LogInViewModel : WizardViewModelWithTasks, ILogInViewModel
+   public class LogInViewModel : WizardViewModel_Forms, ILogInViewModel
    {
       private string _password;
       private string _userName;
@@ -48,7 +47,7 @@ namespace ModernAppDemo.ViewModels
          Title = "Sign In";
       }
 
-      [TwoWayNonEmptyViewModelValidationAttribute(0, PlaceholderText = USER_NAME_PLACEHOLDER_TEXT)]
+      [CommonViewModelValidations_Forms.TwoWayNonEmptyViewModelValidationAttribute(0, PlaceholderText = CommonViewModelValidations_Forms.USER_NAME_PLACEHOLDER_TEXT, IsInitialFocus = ViewModelCustomAttribute_Static_PI.TRUE_BOOL)]
       public string UserName
       {
          get => _userName;
@@ -56,12 +55,14 @@ namespace ModernAppDemo.ViewModels
          {
             if (SetProperty(ref _userName, value))
             {
-               VerifyCommandCanExecute().FireAndForget();
+               VerifyCommandCanExecute().FireAndFuhgetAboutIt();
             }
          }
       }
-      
-      [TwoWayNonEmptyViewModelValidationAttribute(1, PlaceholderText = PASSWORD_PLACEHOLDER_TEXT, IsPassword = ViewModelValidationAttribute_Static.TRUE_BOOL, CanUnmaskPassword = ViewModelValidationAttribute_Static.TRUE_BOOL)]
+
+      [CommonViewModelValidations_Forms.TwoWayNonEmptyViewModelValidationAttribute(1, PlaceholderText = CommonViewModelValidations_Forms.PASSWORD_PLACEHOLDER_TEXT,
+         IsPassword = ViewModelCustomAttribute_Static_PI.TRUE_BOOL,
+         CanUnmaskPassword = ViewModelCustomAttribute_Static_PI.TRUE_BOOL)]
       public string Password
       {
          get => _password;
@@ -69,7 +70,7 @@ namespace ModernAppDemo.ViewModels
          {
             if (SetProperty(ref _password, value))
             {
-               VerifyCommandCanExecute().FireAndForget();
+               VerifyCommandCanExecute().FireAndFuhgetAboutIt();
             }
          }
       }

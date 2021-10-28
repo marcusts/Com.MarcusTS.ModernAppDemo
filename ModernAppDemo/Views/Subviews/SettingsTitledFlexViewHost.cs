@@ -1,7 +1,7 @@
 ﻿// *********************************************************************************
 // Copyright @2021 Marcus Technical Services, Inc.
 // <copyright
-// file=AccountsViewTitledFlexViewHost.cs
+// file=SettingsTitledFlexViewHost.cs
 // company="Marcus Technical Services, Inc.">
 // </copyright>
 // 
@@ -26,16 +26,25 @@
 // SOFTWARE.
 // *********************************************************************************
 
-namespace ModernAppDemo.Views.Subviews
+namespace Com.MarcusTS.ModernAppDemo.Views.Subviews
 {
-    using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.Subviews;
+   using Com.MarcusTS.SharedUtils.Utils;
+   using Com.MarcusTS.UI.XamForms.Common.Interfaces;
+   using Com.MarcusTS.UI.XamForms.Views.Subviews;
+using System.Threading.Tasks;
+   using Xamarin.Forms;
 
-    public interface ISettingsTitledFlexViewHost : ITitledFlexViewHost
-    {
-    }
+   public interface ISettingsTitledFlexViewHost : ITitledViewHostBase_Forms
+   { }
 
-    public class SettingsTitledFlexViewHost : TitledFlexViewHost, ISettingsTitledFlexViewHost
-    {
-        protected override IFlexViewWithTasksBase DerivedFlexViewHost => new SettingsView();
-    }
+   public class SettingsTitledFlexViewHost : TitledViewHostBase_Forms, ISettingsTitledFlexViewHost
+   {
+      public SettingsTitledFlexViewHost( ICanShowProgressSpinner_Forms spinnerHost ) : base( spinnerHost )
+      {
+         GetDerivedView = new SettingsView( spinnerHost );
+         SetForceFullScreen( true ).FireAndFuhgetAboutIt();
+      }
+
+      protected override View GetDerivedView { get; }
+   }
 }

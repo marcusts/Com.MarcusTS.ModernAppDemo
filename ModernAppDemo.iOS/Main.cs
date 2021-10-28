@@ -26,7 +26,7 @@
 // SOFTWARE.
 // *********************************************************************************
 
-namespace ModernAppDemo.iOS
+namespace Com.MarcusTS.ModernAppDemo.iOS
 {
    using UIKit;
 

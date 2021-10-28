@@ -34,7 +34,7 @@ Take the Modern App Demo's login screen.  Can you tell what has been customized 
 
 <img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/login_screen_with_callouts.png" width="500" align="right" />
 
-Only the humble **Xamarin.Forms.Label** has survived!  Otherwise, we have used what we originally called an open source **ShapeView** -- a ContentView "frame" that contains anything, and comes with healthy border support. That control was eventually replaced by another open source library called the [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView), so we just derived that and added some new functionality.  It is still called **ShapeView** inside our own forms controls libraries: [SharedForms](https://github.com/marcusts/Com.MarcusTS.SharedForms) and [ResponsveTasks.XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport).
+Only the humble **Xamarin.Forms.Label** has survived!  Otherwise, we have used what we originally called an open source **ShapeView** -- a ContentView "frame" that contains anything, and comes with healthy border support. That control was eventually replaced by another open source library called the [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView), so we just derived that and added some new functionality.  It is still called **ShapeView** inside our own forms controls libraries: [SharedForms](https://github.com/marcusts/Com.MarcusTS.SharedForms) and [ResponsveTasks.XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.UI.XamForms).
 
 </BR>
 </BR>
@@ -52,18 +52,18 @@ Only the humble **Xamarin.Forms.Label** has survived!  Otherwise, we have used w
 
 <img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/dashboard.jpg" width="300" align="right" />
 
-Our custom controls can provide a much cleaner and more consistent UI for your app. But they also provide a much more powerful styling methodology than you would find in old-style Xamarin controls.  Take the TriStateImageLabelButton*{WithTasks}* from the [ResponsveTasks.XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport) as an example.  This is the "button" you see on the login screen from the earlier screen-shots.  There's an even better example once you log in. From the login screen, type:
+Our custom controls can provide a much cleaner and more consistent UI for your app. But they also provide a much more powerful styling methodology than you would find in old-style Xamarin controls.  Take the TriStateImageLabelButton*{}* from the [ResponsveTasks.XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.UI.XamForms) as an example.  This is the "button" you see on the login screen from the earlier screen-shots.  There's an even better example once you log in. From the login screen, type:
 
 >User Name: **TestUser1**
 Password: **TestPassword1**
 
-The empty Dashboard window opens, revealing a toolbar at the bottom. Each button there is a TriStateImabeLabelButton*{WithTasks}*.  *(The suffix "WithTasks" means that this button leverages the [ResponsiveTasks library](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks)).*
+The empty Dashboard window opens, revealing a toolbar at the bottom. Each button there is a TriStateImabeLabelButton*{}*.  *(The suffix "" means that this button leverages the [ResponsiveTasks library](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks)).*
 
 The TriStateImageLabelButton accepts both a image and text, and each can be separately positioned ***anywhere*** accurately using standard alignment techniques ("Start", "End", etc.).  But the beauty part is the concept of button state, with each state being ***completely*** stylable:
 
 ``` csharp
-public class TriStateImageLabelButtonWithTasks : 
-    ImageLabelButtonBaseWithTasks, ITriStateImageLabelButton
+public class TriStateImageLabelButton : 
+    ImageLabelButtonBase, ITriStateImageLabelButton
 {
     public const string DESELECTED_BUTTON_STATE = "Deselected";
     public const string DISABLED_BUTTON_STATE   = "Disabled";
@@ -155,7 +155,7 @@ private async Task RebuildToolbar()
                         Color.White,0, Color.Transparent),
                         
                     ButtonLabel             = 
-                        FormsUtils.GetSimpleLabel(nameAndState.Item1),
+                        UIUtils_Forms.GetSimpleLabel(nameAndState.Item1),
                     ButtonToggleSelection   = true,
                     CanSelect               = true,
                     CornerRadius            = TOOLBAR_AND_ITEM_RADIUS,
@@ -207,22 +207,22 @@ private async Task RebuildToolbar()
 
 ## Free Custom Controls Provided in the SharedForms Library 
 
-[ResponsveTasks.XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport) provides many custom UI controls.  See the folder path ResponsveTasks.XamFormsSupport.Views/Controls:
+[ResponsveTasks.XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.UI.XamForms) provides many custom UI controls.  See the folder path ResponsveTasks.XamFormsSupport.Views/Controls:
 
-- CustomCheckBox*{WithTasks}*
-- EnumPicker*{WithTasks}*
-- ImageLabelButtonBase*{WithTasks}*
-- SimpleImageLabelButton*{WithTasks}*
-- TaskRepeatToggleImageLabelButton*{WithTasks}*
-- CustomCheckBoxTriStateImageLabelButton*{WithTasks}* -- featured above.
-- ValidatableCheckBox*{WithTasks}*
-- ValidatableDateTime*{WithTasks}*
-- ValidatableEntry*{WithTasks}*
-- ValidatableEnumPicker*{WithTasks}*
-- ValidatableNumericEntry*{WithTasks}*
-- ValidatablePicker*{WithTasks}*
-- ValidatableSlider*{WithTasks}*
-- YesNoToggleImageLabelButton*{WithTasks}*
+- CustomCheckBox*{}*
+- EnumPicker*{}*
+- ImageLabelButtonBase*{}*
+- SimpleImageLabelButton*{}*
+- TaskRepeatToggleImageLabelButton*{}*
+- CustomCheckBoxTriStateImageLabelButton*{}* -- featured above.
+- ValidatableCheckBox*{}*
+- ValidatableDateTime*{}*
+- ValidatableEntry*{}*
+- ValidatableEnumPicker*{}*
+- ValidatableNumericEntry*{}*
+- ValidatablePicker*{}*
+- ValidatableSlider*{}*
+- YesNoToggleImageLabelButton*{}*
 
 ... plus many base classes where you can easily build your own custom controls .
 

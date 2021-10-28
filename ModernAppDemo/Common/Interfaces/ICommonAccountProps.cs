@@ -26,7 +26,7 @@
 // SOFTWARE.
 // *********************************************************************************
 
-namespace ModernAppDemo.Common.Interfaces
+namespace Com.MarcusTS.ModernAppDemo.Common.Interfaces
 {
    using System;
 

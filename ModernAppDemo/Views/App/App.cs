@@ -26,37 +26,44 @@
 // SOFTWARE.
 // *********************************************************************************
 
-namespace ModernAppDemo.Views.App
+namespace Com.MarcusTS.ModernAppDemo.Views.App
 {
-   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Common.Navigation;
-   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.App;
-   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.Pages;
-   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.Presenters;
-   using Com.MarcusTS.ResponsiveTasks.XamFormsSupport.Views.Subviews;
-   using Com.MarcusTS.SharedForms.Common.Utils;
-   using Common.Images;
-   using Common.Navigation;
-   using Presenters;
+   using Com.MarcusTS.PlatformIndependentShared.Common.Interfaces;
+   using Com.MarcusTS.PlatformIndependentShared.Common.Utils;
+   using Com.MarcusTS.UI.XamForms.Common.Interfaces;
+   using Com.MarcusTS.UI.XamForms.Common.Navigation;
+   using Com.MarcusTS.UI.XamForms.Views.App;
+   using Com.MarcusTS.UI.XamForms.Views.Presenters;
+   using Com.MarcusTS.UI.XamForms.Views.Subviews;
+   using ModernAppDemo.Common.Images;
+   using ModernAppDemo.Common.Navigation;
+   using ModernAppDemo.Views.Presenters;
 
-   public interface IApp : IAppBase
-   {
-   }
+   public interface IApp : IAppBase_Forms
+   { }
 
-   public sealed class App : AppBase, IApp
+   public sealed class App : AppBaseForms, IApp
    {
-      protected override IMasterViewPresenterWithTasksBase GetMasterPresenter(ICanShowProgressSpinner spinnerHost)
+      protected override IMasterViewPresenterBase_Forms GetMasterPresenter(
+         ICanShowProgressSpinner_Forms spinnerHost)
       {
          return new MasterViewPresenter(spinnerHost);
       }
 
-      protected override IAppStateManagerBase GetAppStateManager(ICanShowProgressSpinner spinnerHost)
+      protected override IAppStateManagerBase_Forms GetAppStateManager(ICanShowProgressSpinner_Forms spinnerHost)
       {
          return new AppStateManager(spinnerHost);
       }
 
-      protected override IToolbar GetMasterToolbar()
+      protected override IToolbar_PI GetMasterToolbar()
       {
-         return new Toolbar { ImageResourcePath = ImageUtils.MODERN_APP_DEMO_IMAGE_PRE_PATH, ImageResourceType = typeof(ImageUtils), MarginAndSpacing = FormsConst.DEFAULT_STACK_LAYOUT_SPACING};
+         return
+            new Toolbar_Forms
+            {
+               ImageResourcePath = ImageUtils.MODERN_APP_DEMO_IMAGE_PRE_PATH,
+               ImageResourceType = typeof(ImageUtils),
+               MarginAndSpacing  = UIConst_PI.DEFAULT_STACK_LAYOUT_SPACING,
+            };
       }
    }
 }

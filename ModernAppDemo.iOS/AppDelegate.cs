@@ -26,8 +26,9 @@
 // SOFTWARE.
 // *********************************************************************************
 
-namespace ModernAppDemo.iOS
+namespace Com.MarcusTS.ModernAppDemo.iOS
 {
+   using Com.MarcusTS.UI.XamForms.Views.Controls;
    using Foundation;
    using UIKit;
    using Views.App;
@@ -49,6 +50,8 @@ namespace ModernAppDemo.iOS
       //
       public override bool FinishedLaunching(UIApplication app, NSDictionary options)
       {
+         RoundedContentView.Init();
+
          Forms.Init();
 
          LoadApplication(new App());

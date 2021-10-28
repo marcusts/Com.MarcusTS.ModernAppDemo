@@ -26,12 +26,12 @@
 // SOFTWARE.
 // *********************************************************************************
 
-namespace ModernAppDemo.Common.Images
+namespace Com.MarcusTS.ModernAppDemo.Common.Images
 {
    /// <summary>Class StageImageUtils.</summary>
    public static class ImageUtils
    {
       /// <summary>The image pre path</summary>
-      public const string MODERN_APP_DEMO_IMAGE_PRE_PATH = "ModernAppDemo.Common.Images.";
+      public const string MODERN_APP_DEMO_IMAGE_PRE_PATH = "Com.MarcusTS.ModernAppDemo.Common.Images.";
    }
 }
