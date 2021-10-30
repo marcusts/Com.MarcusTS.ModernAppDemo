@@ -44,6 +44,13 @@ namespace Com.MarcusTS.ModernAppDemo.Views.App
 
    public sealed class App : AppBaseForms, IApp
    {
+      /// <summary>
+      /// iOS crash:
+      /// https://developercommunity.visualstudio.com/t/trying-to-preview-forms-for-ios-fails-with-invalid/1052336
+      /// </summary>
+      public App()
+      { }
+
       protected override IMasterViewPresenterBase_Forms GetMasterPresenter(
          ICanShowProgressSpinner_Forms spinnerHost)
       {

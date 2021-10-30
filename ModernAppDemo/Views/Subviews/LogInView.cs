@@ -26,8 +26,6 @@
 // SOFTWARE.
 // *********************************************************************************
 
-// #define FORCE_LOGIN_BUTTON_ON_MAIN_THREAD
-
 namespace Com.MarcusTS.ModernAppDemo.Views.Subviews
 {
    using System.Threading.Tasks;
@@ -58,22 +56,13 @@ namespace Com.MarcusTS.ModernAppDemo.Views.Subviews
          // Add the save and new account buttons
          if ( BindingContext is IWizardViewModel_Forms bindingContextAsWizardViewModel )
          {
-            ThreadHelper.ConsiderBeginInvokeActionOnMainThread( AddLoginButton,
-
-#if FORCE_LOGIN_BUTTON_ON_MAIN_THREAD
-               true
-#else
-               // ReSharper disable once RedundantArgumentDefaultValue
-               false
-#endif
-
-            );
+            await AddLoginAndCancelButtons().ConsiderBeginInvokeTaskOnMainThread();
          }
 
          // -----------------------------------------------------------------------------------------------
          // P R I V A T E   M E T H O D S
          // -----------------------------------------------------------------------------------------------
-         void AddLoginButton()
+         Task AddLoginAndCancelButtons()
          {
             var nextTabIndex = retViews.Count;
 
@@ -102,6 +91,8 @@ namespace Com.MarcusTS.ModernAppDemo.Views.Subviews
                );
 
             retViews.Add( createAccountButton as View );
+
+            return Task.CompletedTask;
          }
 
          // -----------------------------------------------------------------------------------------------
