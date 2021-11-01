@@ -16,7 +16,8 @@
 ## [*Part 7 of N:* **Today's Forecast: DRY and Variable**](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/docs/ModernAppDemo_7.md)
 
 &nbsp;
-![](https://gitlab.com/marcusts1/nugetimages/-/raw/master/Modern_App_Demo_Master_FINAL.gif)
+&nbsp;
+&nbsp;
 
 ## This Project Is Open Source; Enjoy Our Entire Public Suite 
 
