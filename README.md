@@ -5,7 +5,7 @@
 
 >**NOTE** To learn more about how:
 >**Responsive Tasks** manages TPL gaps, see the **[NuGet](https://www.nuget.org/packages/Com.MarcusTS.ResponsiveTasks)** or download the source at **[Github](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks)**.  
->The **Xamarin Forms Support** framework supports this demo, see **[NuGet](https://www.nuget.org/packages/Com.MarcusTS.ResponsiveTasks.XamFormsSupport)** or download the source at **[Github](https://github.com/marcusts/Com.MarcusTS.ResponsiveTasks.XamFormsSupport)**.  
+>The **UI.XamForms** framework supports this demo, see **[NuGet](https://www.nuget.org/packages/Com.MarcusTS.UI.XamForms)** or download the source at **[Github](https://github.com/marcusts/UI.XamForms)**.  
 
 ## [*Part 1 of N:* **Keeping MVVM Truly Light**](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/docs/ModernAppDemo_1.md)
 ## [*Part 2 of N:* **The New "Navigationless" UI**](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/docs/ModernAppDemo_2.md)
