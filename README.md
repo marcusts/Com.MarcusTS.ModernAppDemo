@@ -16,7 +16,4 @@
 ## [*Part 7 of N:* **Today's Forecast: DRY and Variable**](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/docs/ModernAppDemo_7.md)
 ## [*Part 8 of N:* **Avoiding Native Interactions**](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/docs/ModernAppDemo_8.md)
 
-&nbsp;
-![](https://gitlab.com/marcusts1/nugetimages/-/raw/master/Modern_App_Demo_Master_FINAL.gif)
-
 
