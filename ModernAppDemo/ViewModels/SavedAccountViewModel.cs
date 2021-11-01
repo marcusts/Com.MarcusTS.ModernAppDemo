@@ -30,6 +30,7 @@ namespace Com.MarcusTS.ModernAppDemo.ViewModels
 {
    using System;
    using Common.Interfaces;
+using SQLite;
 
    public interface ISavedAccountViewModel : ICommonAccountProps
    {
@@ -42,7 +43,10 @@ namespace Com.MarcusTS.ModernAppDemo.ViewModels
    {
       public string    FirstAndLastName { get; set; }
       public string    FirstName        { get; set; }
-      public int       Id               { get; set; }
+
+      [PrimaryKey, AutoIncrement,] 
+      public int Id { get; set; }
+
       public string    LastName         { get; set; }
       public string    Password         { get; set; }
       public string    Phone            { get; set; }

@@ -68,6 +68,10 @@ namespace Com.MarcusTS.ModernAppDemo.Common.Navigation
 
       private SQLiteAsyncConnection _database;
 
+#if MOCK_USER
+      private ISavedAccountViewModel _fakeUser;
+#endif
+
       public AppStateManager( ICanShowProgressSpinner_Forms spinnerHost ) : base( spinnerHost )
       {
          // NOTE Not terribly legal (async void) but necessary for this hacked database
@@ -85,14 +89,14 @@ namespace Com.MarcusTS.ModernAppDemo.Common.Navigation
                await _database.CreateTableAsync<SavedAccountViewModel>().WithoutChangingContext();
 
 #if MOCK_USER
-               var fakeUser =
+               _fakeUser =
                   new SavedAccountViewModel
                   {
                      UserName = "TestUser1",
                      Password = "TestPassword1",
                   };
 
-               await _database.InsertAsync( fakeUser ).WithoutChangingContext();
+               await _database.InsertAsync( _fakeUser ).WithoutChangingContext();
 #endif
             } );
       }
@@ -212,11 +216,19 @@ namespace Com.MarcusTS.ModernAppDemo.Common.Navigation
             return false;
          }
 
+#if MOCK_USER
+         var foundUser = _fakeUser;
+#else
+         WARNING Crashes with AOT error for iOSwhen compiled and released in "Release" mode  
+                 Unhandled managed exception: Attempting to JIT compile method '(wrapper delegate-invoke) void <Module>:invoke_callvirt_void_SavedAccountViewModel_int (Com.MarcusTS.ModernAppDemo.ViewModels.SavedAccountViewModel,int)' while running in aot-only mode. 
+                 See https://docs.microsoft.com/xamarin/ios/internals/limitations for more information.
+
          // If the account doesn't exist under this user name, show a modal dialog error.
          var foundUser = await _database.Table<SavedAccountViewModel>()
                                         .FirstOrDefaultAsync( vm => vm.UserName == viewModelAsCanLogIn.UserName )
                                         .WithoutChangingContext();
-
+#endif
+         
          if ( foundUser == default )
          {
             await DialogFactory.ShowYesNoDialog( ERROR_TITLE, "The user name does not exist.  Please try again.",

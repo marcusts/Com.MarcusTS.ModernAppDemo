@@ -120,7 +120,8 @@ namespace Com.MarcusTS.ModernAppDemo.ViewModels
       }
 
       // For storage only
-      [PrimaryKey, AutoIncrement,] public int Id { get; set; }
+      [PrimaryKey, AutoIncrement,] 
+      public int Id { get; set; }
 
       [CommonViewModelValidations_Forms.ValidatableTwoWayNonEmptyViewModelValidationAttribute( 1,
          PlaceholderText = "Last Name", ExcludedChars = CommonViewModelValidations_Forms.FORBIDDEN_CHARS )]

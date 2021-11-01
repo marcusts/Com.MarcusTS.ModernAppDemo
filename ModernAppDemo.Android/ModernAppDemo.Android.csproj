@@ -72,10 +72,6 @@
     <PackageReference Include="Plugin.Permissions">
       <Version>6.0.1</Version>
     </PackageReference>
-    <PackageReference Include="PropertyChanged.Fody">
-      <Version>3.4.0</Version>
-      <PrivateAssets>All</PrivateAssets>
-    </PackageReference>
     <PackageReference Include="Xam.Plugin.Connectivity">
       <Version>4.0.0.190-beta</Version>
     </PackageReference>
@@ -103,9 +99,6 @@
   <ItemGroup>
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
-    </None>
-    <None Include="FodyWeavers.xsd">
-      <SubType>Designer</SubType>
     </None>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
@@ -138,13 +131,10 @@
       <Name>ModernAppDemo</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="FodyWeavers.xml" />
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadDebuggerTimeoutExceptionModernAppDemoAndroidHideInfoBar="True" XamarinHotReloadWrongLinkerErrorInfoBarModernAppDemoAndroidHideInfoBar="True" />
+      <UserProperties XamarinHotReloadWrongLinkerErrorInfoBarModernAppDemoAndroidHideInfoBar="True" XamarinHotReloadDebuggerTimeoutExceptionModernAppDemoAndroidHideInfoBar="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
