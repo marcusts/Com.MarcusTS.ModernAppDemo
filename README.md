@@ -15,6 +15,9 @@
 ## [*Part 6 of N:* **Custom Controls for Consistency and Reliability**](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/docs/ModernAppDemo_6.md)
 ## [*Part 7 of N:* **Today's Forecast: DRY and Variable**](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/docs/ModernAppDemo_7.md)
 
+&nbsp;
+![](https://gitlab.com/marcusts1/nugetimages/-/raw/master/Modern_App_Demo_Master_FINAL.gif)
+
 ## This Project Is Open Source; Enjoy Our Entire Public Suite 
 
 ### *Shared Utils (MAUI Ready!)*
@@ -50,7 +53,4 @@
 ### *The Modern App Demo*
 
 [GutHub](https://github.com/marcusts/Com.MarcusTS.ModernAppDemo)
-
-&nbsp;
-![](https://gitlab.com/marcusts1/nugetimages/-/raw/master/Modern_App_Demo_Master_FINAL.gif)
 
