@@ -11,7 +11,7 @@ In the name of making something simpler, an MVVM framework creates a new layer o
 <img src="https://github.com/marcusts/Com.MarcusTS.ModernAppDemo/blob/main/ModernAppDemo/images/flying-cars-2.jpg  " width="400" align="right" />
 
 When you try to implement this "easy" approach, you find that:
-> * Every button, pedal, or lever is attached to another device that you have to learn to push, and that feels klunky
+> * Every button, pedal, or lever is attached to another device that you have to learn to push, and that feels clunky
 > * The moving parts went up by 3x. You don't understand any of them.
 > * The thing drives a lot worse
 > * The thing barely flies; nobody is suicidal enough to volunteer to be the "test" pilot.
@@ -20,7 +20,7 @@ When you try to implement this "easy" approach, you find that:
 
 Here's what the framework really is:
 
-* A black box full of assumptions that you would not undertand if you were a Tibetan monk with a hundred years to read them.
+* A black box full of assumptions that you would not understand if you were a Tibetan monk with a hundred years to read them.
 * ***Massive!*** The most famous MVVM framework contains ***two million lines!***
 * Much harder to use than you could imagine, and way more time-consuming. One Fortune 50 company recently adopted an MVVM framework to ensure that they could deliver their app in one year and at a cost of $15 million. They ended up taking ***three*** years and ***$45 million***, and the app was total crap!  
 * Inflexible; buggy; ugly; stiff; not user-friendly.
@@ -38,7 +38,7 @@ Look at the **[ModernAppDemo](https://github.com/marcusts/Com.MarcusTS.ModernApp
 </BR>
 Here's the coding side of the diagram:
 
-### VIEW
+### THE MASTER VIEW PRESENTER
 The MasterViewPresenter sets the view based on the view model and various run-time conditions:
 
 <font size="2">
@@ -83,10 +83,10 @@ protected override async Task RespondToViewModelChange(object newModule)
 ***NOTE:** The call to **ChangeToolbarState** is a base class method from the **[XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.UI.XamForms)
     )** library, which we import here.*    
 
-The case statement simply sks about the crrent view model interface. All calls are quite generic, mentioning only an interface and class for a specific view. No other decisions are made; this is your entire involvement for a simple UI.
+The case statement simply sks about the current view model interface. All calls are quite generic, mentioning only an interface and class for a specific view. No other decisions are made; this is your entire involvement for a simple UI.
     
-### VIEW
-The AppStateManager sets the view model based on the "current app state", which is arrived at by respoding to the user's decisions.
+### THE APP STATE MANAGER
+The AppStateManager sets the view model based on the "current app state", which is arrived at by responding to the user's decisions.
     
 <font size="2">
     
@@ -142,12 +142,12 @@ protected override async Task RespondToAppStateChange(string newState, bool andR
 ***NOTE:** The call to **ChangeContentView** is also a base class method from the **[XamFormsSupport](https://github.com/marcusts/Com.MarcusTS.UI.XamForms)
     )** library.*
     
-The **APP_STATES** are string constants that you can easaily modify for your own purposes.
+The **APP_STATES** are string constants that you can easily modify for your own purposes.
     
-We do pass a few functions here to ensure that the user is logged in, etc. You can re-arrange these to suit your own requirments.
+We do pass a few functions here to ensure that the user is logged in, etc. You can re-arrange these to suit your own requirements.
     
 ### DI CONTAINER
-The DI *("Dependency Injection")* container constructs classes using standardized rules and based on strct interface contracts. This container is often used to inject parameters into classes being constructed. It is a standard feature of so-called MVVM frameworks.  This DI Container is mine -- [check it out](https://github.com/marcusts/Com.MarcusTS.SmartDI).
+The DI *("Dependency Injection")* container constructs classes using standardized rules and based on strict interface contracts. This container is often used to inject parameters into classes being constructed. It is a standard feature of so-called MVVM frameworks.  This DI Container is mine -- [check it out](https://github.com/marcusts/Com.MarcusTS.SmartDI).
 
     
     

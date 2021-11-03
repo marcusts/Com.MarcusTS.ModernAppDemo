@@ -90,7 +90,7 @@ public class CreateAccountViewModel : WizardViewModel_Forms, ICreateAccountViewM
 
 Notice that the view model  only sets the property and *(if set)*, re-checks a command to activate the Submit button once the view has been legally completed by the user.  It doesn't do anything else.  How is that possible?
 
-The answer is *attributed programming*.  In this case, the custom attribute **ValidatableTwoWayNonEmptyViewModelValidationAttribute**. That's a long-winded derived atttribute based on the **ViewModelValidationAttribute** base class:
+The answer is *attributed programming*.  In this case, the custom attribute **ValidatableTwoWayNonEmptyViewModelValidationAttribute**. That's a long-winded derived attribute based on the **ViewModelValidationAttribute** base class:
 
 ``` csharp
 public class ViewModelValidationAttribute : Attribute, IViewModelValidationAttribute
