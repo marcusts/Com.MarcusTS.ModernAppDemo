@@ -1,5 +1,5 @@
 ﻿// *********************************************************************************
-// Copyright @2021 Marcus Technical Services, Inc.
+// Copyright @2022 Marcus Technical Services, Inc.
 // <copyright
 // file=AppStateManager.cs
 // company="Marcus Technical Services, Inc.">
@@ -27,8 +27,7 @@
 // *********************************************************************************
 
 // #define SUPPRESS__TOOLBAR_ITEMS
-
-#define MOCK_USER
+// #define MOCK_USER
 
 namespace Com.MarcusTS.ModernAppDemo.Common.Navigation
 {
@@ -219,9 +218,9 @@ namespace Com.MarcusTS.ModernAppDemo.Common.Navigation
 #if MOCK_USER
          var foundUser = _fakeUser;
 #else
-         WARNING Crashes with AOT error for iOSwhen compiled and released in "Release" mode  
-                 Unhandled managed exception: Attempting to JIT compile method '(wrapper delegate-invoke) void <Module>:invoke_callvirt_void_SavedAccountViewModel_int (Com.MarcusTS.ModernAppDemo.ViewModels.SavedAccountViewModel,int)' while running in aot-only mode. 
-                 See https://docs.microsoft.com/xamarin/ios/internals/limitations for more information.
+         //WARNING Crashes with AOT error for iOS when compiled and released in "Release" mode  
+         //        Unhandled managed exception: Attempting to JIT compile method '(wrapper delegate-invoke) void <Module>:invoke_callvirt_void_SavedAccountViewModel_int (Com.MarcusTS.ModernAppDemo.ViewModels.SavedAccountViewModel,int)' while running in aot-only mode. 
+         //        See https://docs.microsoft.com/xamarin/ios/internals/limitations for more information.
 
          // If the account doesn't exist under this user name, show a modal dialog error.
          var foundUser = await _database.Table<SavedAccountViewModel>()

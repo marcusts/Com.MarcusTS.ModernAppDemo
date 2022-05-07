@@ -1,5 +1,5 @@
 ﻿// *********************************************************************************
-// Copyright @2021 Marcus Technical Services, Inc.
+// Copyright @2022 Marcus Technical Services, Inc.
 // <copyright
 // file=MainActivity.cs
 // company="Marcus Technical Services, Inc.">
@@ -31,7 +31,6 @@
 namespace ModernAppDemo.Android
 {
    using Acr.UserDialogs;
-using Com.MarcusTS.ModernAppDemo.Android;
    using Com.MarcusTS.ModernAppDemo.Views.App;
    using Com.MarcusTS.UI.XamForms.Views.Controls;
    using global::Android.App;
