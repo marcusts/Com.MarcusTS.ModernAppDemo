@@ -44,8 +44,8 @@ namespace Com.MarcusTS.ModernAppDemo.Views.Subviews
       public LogInTitledFlexViewHost( ICanShowProgressSpinner_Forms spinnerHost ) : base( spinnerHost )
       {
          Margin = new Thickness(
-            ( ScaleUtils_PI.CURRENT_DEVICE_WIDTH - UIConst_PI.DEFAULT_ENTRY_WIDTH -
-              ( 2 * UIConst_PI.MARGIN_SPACING_DOUBLE_FACTOR ) ) / 2, 0 );
+            ( ScaleUtils_Forms.CURRENT_DEVICE_WIDTH - UIConst_Forms.DEFAULT_ENTRY_WIDTH -
+              ( 2 * UIConst_Forms.MARGIN_SPACING_DOUBLE_FACTOR ) ) / 2, 0 );
 
          GetDerivedView =
 

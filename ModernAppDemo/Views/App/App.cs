@@ -32,6 +32,7 @@ namespace Com.MarcusTS.ModernAppDemo.Views.App
    using Com.MarcusTS.PlatformIndependentShared.Common.Utils;
    using Com.MarcusTS.UI.XamForms.Common.Interfaces;
    using Com.MarcusTS.UI.XamForms.Common.Navigation;
+   using Com.MarcusTS.UI.XamForms.Common.Utils;
    using Com.MarcusTS.UI.XamForms.Views.App;
    using Com.MarcusTS.UI.XamForms.Views.Presenters;
    using Com.MarcusTS.UI.XamForms.Views.Subviews;
@@ -69,7 +70,7 @@ namespace Com.MarcusTS.ModernAppDemo.Views.App
             {
                ImageResourcePath = ImageUtils.MODERN_APP_DEMO_IMAGE_PRE_PATH,
                ImageResourceType = typeof(ImageUtils),
-               MarginAndSpacing  = UIConst_PI.DEFAULT_STACK_LAYOUT_SPACING,
+               MarginAndSpacing  = UIConst_Forms.DEFAULT_STACK_LAYOUT_SPACING,
             };
       }
    }

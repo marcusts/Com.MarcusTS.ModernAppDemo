@@ -39,6 +39,7 @@ namespace Com.MarcusTS.ModernAppDemo.iOS
    using System.Linq;
    using System.Reflection;
    using Com.MarcusTS.SharedUtils.Utils;
+   using Com.MarcusTS.UI.XamForms.Common.Utils;
    using CoreGraphics;
    using UIKit;
    using Xamarin.Forms;
@@ -69,7 +70,7 @@ namespace Com.MarcusTS.ModernAppDemo.iOS
                                           if ( NativeView.IsNotNullOrDefault() &&
                                                _staticPropInfos.Any( pi => pi.Name.IsSameAs( args.PropertyName ) ) )
                                           {
-                                             ThreadHelper.ConsiderBeginInvokeActionOnMainThread( () =>
+                                             ThreadHelper_Forms.ConsiderBeginInvokeActionOnMainThread( () =>
                                              {
                                                 try
                                                 {
