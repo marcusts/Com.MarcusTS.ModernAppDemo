@@ -53,13 +53,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>Apple Development: Stephen Marcus (8798NVK66S)</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchInterpreter>-all</MtouchInterpreter>
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
-    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignProvision>
+    </CodesignProvision>
     <MtouchFloat32>true</MtouchFloat32>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
@@ -69,10 +70,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>Apple Development: Stephen Marcus (8798NVK66S)</CodesignKey>
+    <CodesignKey>Apple Distribution: Marcus Technical Services, Inc. (7865EER9U8)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>VS: WildCard Development</CodesignProvision>
-    <MtouchLink>None</MtouchLink>
+    <CodesignProvision>Stephen Marcus Ad Hoc Profile</CodesignProvision>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />
@@ -144,7 +146,7 @@
       <Version>7.2.0.564</Version>
     </PackageReference>
     <PackageReference Include="Com.MarcusTS.UI.XamForms">
-      <Version>[2.0.6]</Version>
+      <Version>2.0.8</Version>
     </PackageReference>
     <PackageReference Include="Plugin.Permissions">
       <Version>6.0.1</Version>
@@ -158,7 +160,7 @@
     <PackageReference Include="Xamarin.Essentials">
       <Version>1.7.3</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ModernAppDemo\ModernAppDemo.csproj">

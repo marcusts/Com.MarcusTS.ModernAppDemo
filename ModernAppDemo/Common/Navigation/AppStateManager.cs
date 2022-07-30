@@ -85,7 +85,7 @@ namespace Com.MarcusTS.ModernAppDemo.Common.Navigation
                                                            .LocalApplicationData ),
                      DATABASE_NAME ) );
 
-               await _database.CreateTableAsync<SavedAccountViewModel>().WithoutChangingContext();
+               await _database.CreateTableAsync<SavedAccountViewModel>().AndReturnToCallingContext();
 
 #if MOCK_USER
                _fakeUser =
@@ -95,7 +95,7 @@ namespace Com.MarcusTS.ModernAppDemo.Common.Navigation
                      Password = "TestPassword1",
                   };
 
-               await _database.InsertAsync( _fakeUser ).WithoutChangingContext();
+               await _database.InsertAsync( _fakeUser ).AndReturnToCallingContext();
 #endif
             } );
       }
@@ -119,32 +119,32 @@ namespace Com.MarcusTS.ModernAppDemo.Common.Navigation
          {
             case DASHBOARD_APP_STATE:
                await ChangeToolbarViewModelState<IDashboardViewModel, DashboardViewModel>( newState )
-                 .WithoutChangingContext();
+                 .AndReturnToCallingContext();
                break;
 
             case SETTINGS_APP_STATE:
                await ChangeToolbarViewModelState<ISettingsViewModel, SettingsViewModel>( newState )
-                 .WithoutChangingContext();
+                 .AndReturnToCallingContext();
                break;
 
             case SIGN_IN_APP_STATE:
-               await RequestLogin().WithoutChangingContext();
+               await RequestLogin().AndReturnToCallingContext();
                break;
 
             case CREATE_ACCOUNT_APP_STATE:
                await ChangeLoginViewModelState<ICreateAccountViewModel, CreateAccountViewModel>(
                      CREATION_SUCCESS_APP_STATE, SIGN_IN_APP_STATE, ServiceDateIsValidAndUserCanBeSaved )
-                 .WithoutChangingContext();
+                 .AndReturnToCallingContext();
                break;
 
             case CREATION_SUCCESS_APP_STATE:
                await ChangeLoginViewModelState<ICreationSuccessViewModel, CreationSuccessViewModel>( SIGN_IN_APP_STATE,
-                  NO_APP_STATE ).WithoutChangingContext();
+                  NO_APP_STATE ).AndReturnToCallingContext();
                break;
 
             case LOGOUT_APP_STATE:
                // TODO - Log out physically -- ??
-               await RequestLogin().WithoutChangingContext();
+               await RequestLogin().AndReturnToCallingContext();
                break;
          }
 
@@ -152,7 +152,7 @@ namespace Com.MarcusTS.ModernAppDemo.Common.Navigation
          async Task RequestLogin()
          {
             await ChangeLoginViewModelState<ILogInViewModel, LogInViewModel>( DASHBOARD_APP_STATE,
-               CREATE_ACCOUNT_APP_STATE, UserExists ).WithoutChangingContext();
+               CREATE_ACCOUNT_APP_STATE, UserExists ).AndReturnToCallingContext();
          }
       }
 
@@ -169,8 +169,8 @@ namespace Com.MarcusTS.ModernAppDemo.Common.Navigation
             await DialogFactory.ShowYesNoDialog( ERROR_TITLE,
                "The service start date must be within 30 days.  Please try again.",
                OK_TEXT,
-               "" ).WithoutChangingContext();
-            await viewModel.SetOutcome( Outcomes.TryAgain ).WithoutChangingContext();
+               "" ).AndReturnToCallingContext();
+            await viewModel.SetOutcome( Outcomes.TryAgain ).AndReturnToCallingContext();
             return false;
          }
 
@@ -180,8 +180,8 @@ namespace Com.MarcusTS.ModernAppDemo.Common.Navigation
             await DialogFactory.ShowYesNoDialog( ERROR_TITLE,
                "Service can only start date on or after today.  Please try again.",
                OK_TEXT,
-               "" ).WithoutChangingContext();
-            await viewModel.SetOutcome( Outcomes.TryAgain ).WithoutChangingContext();
+               "" ).AndReturnToCallingContext();
+            await viewModel.SetOutcome( Outcomes.TryAgain ).AndReturnToCallingContext();
             return false;
          }
 
@@ -191,19 +191,19 @@ namespace Com.MarcusTS.ModernAppDemo.Common.Navigation
          var accountToSave = new SavedAccountViewModel();
          accountToSave.CopySettablePropertyValuesFrom( (ICommonAccountProps)viewModel );
 
-         var savedId = await _database.InsertAsync( accountToSave ).WithoutChangingContext();
+         var savedId = await _database.InsertAsync( accountToSave ).AndReturnToCallingContext();
 
          if ( savedId < 0 )
          {
             await DialogFactory.ShowYesNoDialog( ERROR_TITLE, "The user could not be saved.  Please try again.",
                OK_TEXT,
-               "" ).WithoutChangingContext();
-            await viewModel.SetOutcome( Outcomes.TryAgain ).WithoutChangingContext();
+               "" ).AndReturnToCallingContext();
+            await viewModel.SetOutcome( Outcomes.TryAgain ).AndReturnToCallingContext();
             return false;
          }
 
          // ELSE success
-         await viewModel.SetOutcome( Outcomes.Next ).WithoutChangingContext();
+         await viewModel.SetOutcome( Outcomes.Next ).AndReturnToCallingContext();
          return true;
       }
 
@@ -225,15 +225,15 @@ namespace Com.MarcusTS.ModernAppDemo.Common.Navigation
          // If the account doesn't exist under this user name, show a modal dialog error.
          var foundUser = await _database.Table<SavedAccountViewModel>()
                                         .FirstOrDefaultAsync( vm => vm.UserName == viewModelAsCanLogIn.UserName )
-                                        .WithoutChangingContext();
+                                        .AndReturnToCallingContext();
 #endif
          
          if ( foundUser == default )
          {
             await DialogFactory.ShowYesNoDialog( ERROR_TITLE, "The user name does not exist.  Please try again.",
                OK_TEXT,
-               "" ).WithoutChangingContext();
-            await viewModel.SetOutcome( Outcomes.TryAgain ).WithoutChangingContext();
+               "" ).AndReturnToCallingContext();
+            await viewModel.SetOutcome( Outcomes.TryAgain ).AndReturnToCallingContext();
             return false;
          }
 
@@ -241,15 +241,15 @@ namespace Com.MarcusTS.ModernAppDemo.Common.Navigation
          if ( foundUser.Password.IsDifferentThan( viewModelAsCanLogIn.Password ) )
          {
             await DialogFactory.ShowYesNoDialog( ERROR_TITLE, "Incorrect password.  Please try again.", OK_TEXT,
-               "" ).WithoutChangingContext();
-            await viewModel.SetOutcome( Outcomes.TryAgain ).WithoutChangingContext();
+               "" ).AndReturnToCallingContext();
+            await viewModel.SetOutcome( Outcomes.TryAgain ).AndReturnToCallingContext();
             return false;
          }
 
          // ELSE the user exists and the password is correct. Show a modal dialog and then move on to Accounts.
          //await DialogFactory.ShowYesNoDialog(SUCCESS_TITLE, "You are now logged in.", OK_TEXT,
-         //                                    "").WithoutChangingContext();
-         await viewModel.SetOutcome( Outcomes.Next ).WithoutChangingContext();
+         //                                    "").AndReturnToCallingContext();
+         await viewModel.SetOutcome( Outcomes.Next ).AndReturnToCallingContext();
 
          return true;
       }

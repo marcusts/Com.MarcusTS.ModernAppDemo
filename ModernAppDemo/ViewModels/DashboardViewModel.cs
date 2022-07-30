@@ -46,6 +46,8 @@ namespace Com.MarcusTS.ModernAppDemo.ViewModels
    public class DashboardViewModel :
       ServiceListWizardViewModelBase_Forms<IDashboardTableRowViewModel>, IDashboardViewModel
    {
+
+#if MOCK_DASHBOARD_DATA
       private const           int    MAX_DAYS_AFTER                  = 30;
       private const           int    MAX_DAYS_BEFORE                 = 100;
       private const           int    MAX_MOCK_ENTRIES                = 50;
@@ -55,8 +57,9 @@ namespace Com.MarcusTS.ModernAppDemo.ViewModels
       private const           int    MOCK_SERVICE_DELAY_MILLISECONDS = 25;
       private static readonly Faker  _FAKER                          = new Faker();
       private static readonly Random _random                         = Extensions.CreateRandom;
+#endif
 
-      public DashboardViewModel()
+        public DashboardViewModel()
       {
          Title = AppStateManager.DASHBOARD_TITLE;
       }
@@ -66,19 +69,20 @@ namespace Com.MarcusTS.ModernAppDemo.ViewModels
 #if MOCK_DASHBOARD_DATA
          IList<IDashboardTableRowViewModel> retData = new List<IDashboardTableRowViewModel>();
 
-         var isFirst = true;
+         // var isFirst = true;
 
          for ( var count = 0; count < _random.Next( MIN_MOCK_ENTRIES, MAX_MOCK_ENTRIES + 1 ); count++ )
          {
             IDashboardTableRowViewModel newTableRow = new DashboardTableRowViewModel();
 
             newTableRow.Description = 
-               isFirst 
-               ?
-               "" 
-               :
+               //isFirst 
+               //?
+               //"" 
+               //:
                string.Join( UIUtils_PI.SPACE_CHAR.ToString(),
                _FAKER.Lorem.Words( _random.Next( MIN_WORDS, MAX_WORDS ) ) );
+
             newTableRow.Kind =
                TableAttributeViewManager_Forms.DISPLAY_KINDS.RandomString( false, _random );
 
@@ -105,9 +109,9 @@ namespace Com.MarcusTS.ModernAppDemo.ViewModels
 
             retData.Add( newTableRow );
 
-            await Task.Delay( MOCK_SERVICE_DELAY_MILLISECONDS ).WithoutChangingContext();
+            await Task.Delay( MOCK_SERVICE_DELAY_MILLISECONDS ).AndReturnToCallingContext();
 
-            isFirst = false;
+            // isFirst = false;
          }
 
          return retData;

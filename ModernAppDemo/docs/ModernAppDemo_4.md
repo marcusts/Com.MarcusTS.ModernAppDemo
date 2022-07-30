@@ -120,7 +120,7 @@ public class FlexView :
     ///////////////////////////////////////////////////////////////////////////////
     
     protected virtual async Task HandlePostBindingTask(IResponsiveTaskParams paramdict)
-        => await ThreadHelper.WithoutChangingContext(this.RecreateUI());
+        => await ThreadHelper.AndReturnToCallingContext(this.RecreateUI());
     
     ///////////////////////////////////////////////////////////////////////////////
     Builds the UI sub-views and adds them to the view's stack layout

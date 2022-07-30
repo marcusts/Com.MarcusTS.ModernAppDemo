@@ -49,32 +49,32 @@ protected override async Task RespondToViewModelChange(object newModule)
     if (newModule is IDashboardViewModel)
     {
         await ChangeContentView<IDashboardTitledFlexViewHost,         DashboardTitledFlexViewHost>(newModule)
-        .WithoutChangingContext();
+        .AndReturnToCallingContext();
     }
     else if (newModule is ISettingsViewModel)
     {
          await ChangeContentView<ISettingsTitledFlexViewHost, SettingsTitledFlexViewHost>(newModule)
-         .WithoutChangingContext();
+         .AndReturnToCallingContext();
     }
     else if (newModule is IAccountsViewModel)
     {
          await ChangeContentView<IAccountsTitledFlexViewHost, AccountsTitledFlexViewHost>(newModule)
-         .WithoutChangingContext();
+         .AndReturnToCallingContext();
     }
     else if (newModule is ILogInViewModel)
     {
          await ChangeContentView<ILogInTitledFlexViewHost, LogInTitledFlexViewHost>(newModule)
-         .WithoutChangingContext();
+         .AndReturnToCallingContext();
     }
     else if (newModule is ICreateAccountViewModel)
     {
          await ChangeContentView<ICreateAccountTitledFlexViewHost, CreateAccountTitledFlexViewHost>(newModule)
-         .WithoutChangingContext();
+         .AndReturnToCallingContext();
     }
     else if (newModule is ICreationSuccessViewModel)
     {
          await ChangeContentView<ICreationSuccessTitledFlexViewHost, CreationSuccessTitledFlexViewHost>(newModule)
-         .WithoutChangingContext();
+         .AndReturnToCallingContext();
     }
 }
 ```    
@@ -97,21 +97,21 @@ protected override async Task RespondToAppStateChange(string newState, bool andR
     {
         case DASHBOARD_APP_STATE:
             await ChangeToolbarViewModelState<IDashboardViewModel, DashboardViewModel>(newState)
-            .WithoutChangingContext();
+            .AndReturnToCallingContext();
             break;
 
         case ACCOUNTS_APP_STATE:
             await ChangeToolbarViewModelState<IAccountsViewModel, AccountsViewModel>(newState)
-            .WithoutChangingContext();
+            .AndReturnToCallingContext();
         break;
 
         case SETTINGS_APP_STATE:
             await ChangeToolbarViewModelState<ISettingsViewModel, SettingsViewModel>(newState)
-            .WithoutChangingContext();
+            .AndReturnToCallingContext();
         break;
 
         case SIGN_IN_APP_STATE:
-            await RequestLogin().WithoutChangingContext();
+            await RequestLogin().AndReturnToCallingContext();
         break;
 
         case CREATE_ACCOUNT_APP_STATE:
@@ -119,19 +119,19 @@ protected override async Task RespondToAppStateChange(string newState, bool andR
             CREATION_SUCCESS_APP_STATE,
             SIGN_IN_APP_STATE,
             ServiceDateIsValidAndUserCanBeSaved)
-            .WithoutChangingContext();
+            .AndReturnToCallingContext();
             break;
 
         case CREATION_SUCCESS_APP_STATE:
             await ChangeLoginViewModelState<ICreationSuccessViewModel, CreationSuccessViewModel>(
             SIGN_IN_APP_STATE, 
             NO_APP_STATE)
-    .WithoutChangingContext();
+    .AndReturnToCallingContext();
             break;
             
         case LOGOUT_APP_STATE:
             // TODO - Log out physically -- ??
-            await RequestLogin().WithoutChangingContext();
+            await RequestLogin().AndReturnToCallingContext();
             break;
     }
 }    

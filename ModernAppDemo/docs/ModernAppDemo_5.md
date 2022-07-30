@@ -65,7 +65,7 @@ protected override async Task RespondToAppStateChange
             ///////////////////////////////////////////////////////////////////////////
             ServiceDateIsValidAndUserCanBeSaved)
             
-            .WithoutChangingContext();
+            .AndReturnToCallingContext();
             break;
 
         case CREATION_SUCCESS_APP_STATE:
@@ -73,7 +73,7 @@ protected override async Task RespondToAppStateChange
             <ICreationSuccessViewModel, CreationSuccessViewModel>
             (SIGN_IN_APP_STATE, 
             NO_APP_STATE)
-            .WithoutChangingContext();
+            .AndReturnToCallingContext();
             break;
                     
         ... code omitted
@@ -90,13 +90,13 @@ protected override async Task RespondToViewModelChange(object newModule)
     {
         await ChangeContentView
         <IDashboardTitledFlexViewHost, DashboardTitledFlexViewHost>
-        (newModule).WithoutChangingContext();
+        (newModule).AndReturnToCallingContext();
     }
     else if (newModule is ISettingsViewModel)
     {
         await ChangeContentView
         <ISettingsTitledFlexViewHost, SettingsTitledFlexViewHost>
-        (newModule).WithoutChangingContext();
+        (newModule).AndReturnToCallingContext();
     }
     
     ... code omitted

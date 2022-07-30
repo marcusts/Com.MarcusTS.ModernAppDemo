@@ -201,7 +201,7 @@ namespace Com.MarcusTS.ModernAppDemo.ViewModels
       private async Task RefreshFirstAndLastName()
       {
          FirstAndLastName = FirstName?.Trim() + " " + LastName?.Trim();
-         await VerifyCommandCanExecute().WithoutChangingContext();
+         await VerifyCommandCanExecute().AndReturnToCallingContext();
       }
    }
 }

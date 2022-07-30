@@ -77,7 +77,7 @@ using Com.MarcusTS.UI.XamForms.Common.Interfaces;
          }
 
          // ELSE
-         await base.EndInitialization().WithoutChangingContext();
+         await base.EndInitialization().AndReturnToCallingContext();
       }
 
 

@@ -46,11 +46,11 @@ namespace Com.MarcusTS.ModernAppDemo.Views.Subviews
    {
       protected override async Task BeforeSourceViewsAssigned( BetterObservableCollection<View> retViews )
       {
-         await base.BeforeSourceViewsAssigned( retViews ).WithoutChangingContext();
+         await base.BeforeSourceViewsAssigned( retViews ).AndReturnToCallingContext();
 
          if ( AnimatableLayout is IFlowableCollectionCanvas_Forms animatableLayoutAsFlowableCollectionCanvas )
          {
-            await animatableLayoutAsFlowableCollectionCanvas.SetScrollBottomMargin( 0 ).WithoutChangingContext();
+            await animatableLayoutAsFlowableCollectionCanvas.SetScrollBottomMargin( 0 ).AndReturnToCallingContext();
          }
 
          // Add the save and new account buttons

@@ -169,10 +169,10 @@ namespace Com.MarcusTS.ModernAppDemo.Common.Utils
 
          if (backgroundColor.HasValue)
          {
-            newConfig.SetBackgroundColor(backgroundColor.Value);
+             newConfig = newConfig.SetBackgroundColor(backgroundColor.Value);
          }
 
-         newConfig.SetDuration(
+         newConfig = newConfig.SetDuration(
             TimeSpan.FromSeconds(useTimeout && (toastDissolveSeconds > 0) ? toastDissolveSeconds : WAIT_FOREVER));
 
          var newAction = new ToastAction();
@@ -182,16 +182,16 @@ namespace Com.MarcusTS.ModernAppDemo.Common.Utils
          {
             if (action != null)
             {
-               newAction.SetAction(action);
+                newAction = newAction.SetAction(action);
             }
 
             if (actionText.IsNotEmpty())
             {
-               newAction.SetText(actionText);
-               newAction.SetTextColor(actionTextColor ?? Color.White);
+                newAction = newAction.SetText(actionText);
+                newAction = newAction.SetTextColor(actionTextColor ?? Color.White);
             }
 
-            newConfig.SetAction(newAction);
+            newConfig = newConfig.SetAction(newAction);
          }
          // ELSE skip "SetAction"
 
@@ -206,7 +206,7 @@ namespace Com.MarcusTS.ModernAppDemo.Common.Utils
          string cancelText = "No"
       )
       {
-         return await UserDialogs.Instance.ConfirmAsync(message, title, okText, cancelText).WithoutChangingContext();
+         return await UserDialogs.Instance.ConfirmAsync(message, title, okText, cancelText).AndReturnToCallingContext();
       }
    }
 }

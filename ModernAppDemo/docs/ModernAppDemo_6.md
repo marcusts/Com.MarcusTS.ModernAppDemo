@@ -111,7 +111,7 @@ private async Task HandlePostBindingTask(IResponsiveTaskParams paramdict)
                                           .AddIfNotAlreadyThere(this, HandleIsVisibleChangedTask);
         IsVisible = bindingContextAsProvidingNames.IsToolbarVisible;
 
-        await RebuildToolbar().WithoutChangingContext();
+        await RebuildToolbar().AndReturnToCallingContext();
     }
 
     _grid.BindingContext = BindingContext;
@@ -199,7 +199,7 @@ private async Task RebuildToolbar()
                _grid.AddAndSetRowsAndColumns(toolbarItem, column: currentColumn++);
             }
 
-            await SetBottomToolbarHeight(TOOLBAR_HEIGHT).WithoutChangingContext();
+            await SetBottomToolbarHeight(TOOLBAR_HEIGHT).AndReturnToCallingContext();
         }
     }
 }         

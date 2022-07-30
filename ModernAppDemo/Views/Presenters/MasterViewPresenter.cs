@@ -48,27 +48,27 @@ namespace Com.MarcusTS.ModernAppDemo.Views.Presenters
          if ( newModule is IDashboardViewModel )
          {
             await ChangeContentView<IDashboardTitledFlexViewHost, DashboardTitledTableViewHost>( newModule )
-              .WithoutChangingContext();
+              .AndReturnToCallingContext();
          }
          else if ( newModule is ISettingsViewModel )
          {
             await ChangeContentView<ISettingsTitledFlexViewHost, SettingsTitledFlexViewHost>( newModule )
-              .WithoutChangingContext();
+              .AndReturnToCallingContext();
          }
          else if ( newModule is ILogInViewModel )
          {
             await ChangeContentView<ILogInTitledFlexViewHost, LogInTitledFlexViewHost>( newModule )
-              .WithoutChangingContext();
+              .AndReturnToCallingContext();
          }
          else if ( newModule is ICreateAccountViewModel )
          {
             await ChangeContentView<ICreateAccountTitledViewHost, CreateAccountTitledViewHost>( newModule )
-              .WithoutChangingContext();
+              .AndReturnToCallingContext();
          }
          else if ( newModule is ICreationSuccessViewModel )
          {
             await ChangeContentView<ICreationSuccessTitledFlexViewHost, CreationSuccessTitledFlexViewHost>( newModule )
-              .WithoutChangingContext();
+              .AndReturnToCallingContext();
          }
       }
    }

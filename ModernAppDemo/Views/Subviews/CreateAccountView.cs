@@ -46,7 +46,7 @@ namespace Com.MarcusTS.ModernAppDemo.Views.Subviews
    {
       protected override async Task BeforeSourceViewsAssigned( BetterObservableCollection<View> retViews )
       {
-         await base.BeforeSourceViewsAssigned( retViews ).WithoutChangingContext();
+         await base.BeforeSourceViewsAssigned( retViews ).AndReturnToCallingContext();
 
          // Set the comparison validator
 
